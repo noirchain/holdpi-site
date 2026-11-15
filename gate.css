@@ -1,0 +1,193 @@
+/* ==========================================================================
+   π — access gate · self-contained styles
+   ========================================================================== */
+
+/* While locked: light page bg, blank everything except the gate + liquid bg
+   canvas (so the binary cursor effect shows behind the gate). */
+html:not(.is-unlocked) body {
+  background: #dee1e5;
+  margin: 0;
+}
+html:not(.is-unlocked) body > *:not(#gate):not(.liquid-bg-canvas) {
+  display: none !important;
+}
+
+/* Restore the native mouse cursor — the main styles aggressively set
+   cursor: none on every element to enable the custom crosshair cursor,
+   but the custom cursor element is hidden during the gate. */
+html:not(.is-unlocked),
+html:not(.is-unlocked) *,
+html:not(.is-unlocked) *::before,
+html:not(.is-unlocked) *::after {
+  cursor: auto !important;
+}
+html:not(.is-unlocked) input,
+html:not(.is-unlocked) textarea {
+  cursor: text !important;
+}
+html:not(.is-unlocked) button,
+html:not(.is-unlocked) a {
+  cursor: pointer !important;
+}
+
+#gate {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+/* metallic chrome panel + lime conic-gradient glow ring (matches the
+   contract-address card on the home page).  Reuses .glow-frame and
+   .glow-ring from styles.css — no need to redeclare @property --ca. */
+.gate-card {
+  position: relative;
+  isolation: isolate;
+  width: min(440px, 100%);
+  border: 1px solid #0e1014;
+  border-radius: 4px;
+  overflow: hidden;
+  padding: 26px 24px 22px;
+  background:
+    linear-gradient(118deg, transparent 22%, rgba(255, 255, 255, 0.65) 48%, transparent 72%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 24%),
+    linear-gradient(180deg,
+      #ffffff 0%,
+      #e8eaed 14%,
+      #c4c8ce 42%,
+      #adb1b8 68%,
+      #c2c6cc 84%,
+      #9ba0a7 100%);
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+/* lift content above the spinning ring */
+.gate-content {
+  position: relative;
+  z-index: 3;
+}
+
+.gate-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #0e1014;
+  margin-bottom: 18px;
+}
+.gate-bar .gate-led {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: #c8ff3a;
+  border: 1px solid #0e1014;
+  margin-right: 8px;
+  vertical-align: middle;
+  animation: gate-blink 1.6s steps(2, end) infinite;
+}
+@keyframes gate-blink { 50% { opacity: 0.25; } }
+
+.gate-glyph {
+  display: block;
+  text-align: center;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 88px;
+  line-height: 1;
+  background: #c8ff3a;
+  color: #0e1014;
+  border: 1px solid #0e1014;
+  padding: 14px 0 18px;
+  margin: 0 0 18px;
+  letter-spacing: -0.02em;
+}
+
+.gate-h {
+  text-align: center;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #0e1014;
+  margin: 0 0 6px;
+}
+.gate-sub {
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #6a6f78;
+  margin-bottom: 18px;
+}
+
+.gate-form {
+  display: flex;
+  border: 1px solid #0e1014;
+  background: #0a0d12;
+}
+.gate-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #c8ff3a;
+  caret-color: #c8ff3a;
+  font: inherit;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  padding: 12px 14px;
+  min-width: 0;
+}
+.gate-input::placeholder { color: #4a4f57; letter-spacing: 0.18em; }
+.gate-btn {
+  background: #c8ff3a;
+  color: #0e1014;
+  border: none;
+  border-left: 1px solid #0e1014;
+  font: inherit;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  padding: 0 18px;
+  transition: filter .12s;
+}
+.gate-btn:hover { filter: brightness(1.06); }
+.gate-btn:active { filter: brightness(0.92); }
+
+.gate-err {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #c0182e;
+  min-height: 12px;
+  visibility: hidden;
+}
+.gate-err.is-on { visibility: visible; }
+
+.gate-foot {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  color: #6a6f78;
+}
+
+.gate-card.is-shake { animation: gate-shake 0.36s cubic-bezier(.36,.07,.19,.97); }
+@keyframes gate-shake {
+  10%, 90% { transform: translate3d(-2px, 0, 0); }
+  20%, 80% { transform: translate3d(4px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-6px, 0, 0); }
+  40%, 60% { transform: translate3d(6px, 0, 0); }
+}
+
+@media (max-width: 480px) {
+  .gate-glyph { font-size: 64px; padding: 10px 0 14px; }
+  .gate-h { font-size: 18px; }
+}

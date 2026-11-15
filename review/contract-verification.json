@@ -1,0 +1,122 @@
+{
+  "scope": "Actual WBNB and PancakeSwap V2 on a local BNB fork. OpenFour settlement uses the labelled CoreHarness.",
+  "fork": {
+    "chainId": 56,
+    "forkBlockNumber": 133771470,
+    "forkBlockHash": "0x9f8d7ed79b3396b4d910964e50077f2a2ac573c9d23abf146ee02b061307bc78"
+  },
+  "compiler": "0.8.24",
+  "gasUnits": {
+    "migration": "397080",
+    "dexBuy": "331787",
+    "dexFreshSell": "190022",
+    "conversion": "321539",
+    "buyback": "240578",
+    "addLiquidity": "404155",
+    "crowdedTransfer": "837615",
+    "crowdedDistribution": "938827"
+  },
+  "tests": [
+    {
+      "title": "keeps deployed bytecode within the EVM limit and binds the original supply",
+      "status": "passed"
+    },
+    {
+      "title": "charges 5 percent buys and 10 percent fresh exits on launch day, day 20 and day 365 without double tax",
+      "status": "passed"
+    },
+    {
+      "title": "keeps mature acquisitions on top-up and consumes fresh PI first",
+      "status": "passed"
+    },
+    {
+      "title": "taxes wallet moves, resets recipient age and preserves self/zero transfers",
+      "status": "passed"
+    },
+    {
+      "title": "never grants a lower fee or eligibility early across midnight",
+      "status": "passed"
+    },
+    {
+      "title": "divides a finite pot 2:1 between equal mature and newly qualified holdings",
+      "status": "passed"
+    },
+    {
+      "title": "normalizes mature weights and creates no liability from elapsed time",
+      "status": "passed"
+    },
+    {
+      "title": "reserves the entire empty-holder bucket and denies retrospective rewards to later acquisitions",
+      "status": "passed"
+    },
+    {
+      "title": "preserves earned BNB after exit and falls back to WBNB for rejecting recipients",
+      "status": "passed"
+    },
+    {
+      "title": "blocks claim reentrancy and preserves unpaid debt when native withdrawal fails",
+      "status": "passed"
+    },
+    {
+      "title": "conserves cumulative 70/15/10/5 budgets and rejects unauthorized or cross-bucket spending",
+      "status": "passed"
+    },
+    {
+      "title": "seeds real PancakeSwap liquidity at the terminal curve ratio and preserves holding ages",
+      "status": "passed"
+    },
+    {
+      "title": "charges real DEX buys 5 percent and fresh sells 10 percent",
+      "status": "passed"
+    },
+    {
+      "title": "reaches the 1 percent DEX floor after a month",
+      "status": "passed"
+    },
+    {
+      "title": "leaves exits live when treasury processing has no current oracle",
+      "status": "passed"
+    },
+    {
+      "title": "executes real fee conversion, buyback/burn and locked liquidity with segregated budgets",
+      "status": "passed"
+    },
+    {
+      "title": "rejects premature oracle updates and oversized treasury swaps",
+      "status": "passed"
+    },
+    {
+      "title": "bounds cohort storage and measures a crowded transfer and distribution",
+      "status": "passed"
+    },
+    {
+      "title": "validates LP inventory and component bindings",
+      "status": "passed"
+    },
+    {
+      "title": "preserves ledger balances, supply and backing across 160 randomized EVM actions",
+      "status": "passed"
+    },
+    {
+      "title": "matches every daily rate and weight in the independently specified frontend model",
+      "status": "passed"
+    },
+    {
+      "title": "settles dormant cohort history identically to active claims across two years",
+      "status": "passed"
+    },
+    {
+      "title": "rejects treasury execution after a large spot-price displacement",
+      "status": "passed"
+    },
+    {
+      "title": "graduates with an unsolicited quote donation without a stuck migration",
+      "status": "passed"
+    }
+  ],
+  "limits": [
+    "No public transaction or deployed PI address.",
+    "Production OpenFour Core/FeeRouter/Registry integration and independent security audit remain required.",
+    "Measured gas cases are not a proof of global worst-case gas."
+  ]
+}

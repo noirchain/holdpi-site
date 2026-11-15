@@ -1,0 +1,3 @@
+/* Text-only recovery fixes; the original styles.css remains unchanged. */
+.disc-isnt .disc-list li::before { content: "-"; }
+.calc-unit { white-space: nowrap; }

@@ -1,0 +1,113 @@
+{
+  "version": "PI BNB v2 economic baseline, 2026-11-15",
+  "status": "Economic specification implemented in the accompanying review contracts. No public deployment or production approval.",
+  "chain_and_asset": {
+    "target": "BNB Chain through a custom OpenFour preset",
+    "symbol": "PI",
+    "reward_asset": "WBNB backing with native BNB claim and WBNB fallback",
+    "supply_policy": "1 billion initial PI in this implementation, no team mint. Sale allocation and curve pricing remain launch configuration."
+  },
+  "fees": {
+    "buy_bps": 500,
+    "exit_cap_bps": 1000,
+    "exit_floor_bps": 100,
+    "holding_day_checkpoints": [
+      {
+        "day": 0,
+        "bps": 1000
+      },
+      {
+        "day": 1,
+        "bps": 800
+      },
+      {
+        "day": 3,
+        "bps": 600
+      },
+      {
+        "day": 7,
+        "bps": 400
+      },
+      {
+        "day": 14,
+        "bps": 200
+      },
+      {
+        "day": 30,
+        "bps": 100
+      }
+    ],
+    "daily_interpolation": "For completed cohort day d between adjacent (a, high) and (b, low), bps = high - floor((high-low)*(d-a)/(b-a)). At and beyond day 30 the rate is 100 bps. Rates update each completed cohort day, not only at the listed checkpoints.",
+    "basis": "These are PI project taxes. OpenFour protocol/developer fees, AMM fees, gas, anti-sniper if enabled, price impact and conversion costs are separate.",
+    "bonding": "Buy tax is added to curve quote; sell tax is deducted from curve quote. The custom TradeModule reads the actual trader and adjusted token amount and returns a capped age-weighted fee. The authorized Core sell collection leg consumes age once without charging a second token fee.",
+    "post_migration": "Canonical pool buys charge 5 percent of gross PI output. Holder exits charge the cohort-dependent rate in PI. Quote proceeds are measured after actual conversion.",
+    "outgoing_transfers": "Sales, gifts, own-wallet moves and transfers to unregistered intermediaries are exits. Only scoped, validated Core settlement and protocol processing paths are exempt. Received tokens acquire fresh age.",
+    "cohort_consumption": "Newest tokens first. Top-ups do not age or reset existing cohorts. Zero-value and self-transfers do not change age or charge a fee.",
+    "immutability_target": "Fix the chosen token fee schedule at launch. OpenFour governance and upgradeable dependencies remain a separately disclosed control boundary."
+  },
+  "age": {
+    "unit": "Conservative UTC-day acquisition cohorts",
+    "birth": "ceil(receipt timestamp / 86400)",
+    "completed_days": "max(0, floor(current timestamp / 86400) - birth)",
+    "precision": "A checkpoint is reached at least its stated number of full 24-hour days after receipt and less than one day later. The 1 percent rate activates between 30 and under 31 days after receipt. Display exact unlock and reduction timestamps.",
+    "state_bound": "31 active daily cohorts plus one mature balance per wallet; no iteration over the holder population",
+    "migration": "The same token ledger and accrued reward entitlements survive graduation. No age restart.",
+    "launch_independence": "Every acquisition starts a fresh clock, whether bought on launch day, day 20 or later. Every purchase sold within its first 24 hours incurs 10 percent sell tax. Top-ups have separate fresh age while existing cohorts retain theirs."
+  },
+  "rewards": {
+    "weights": [
+      {
+        "completed_days": 0,
+        "weight": 0
+      },
+      {
+        "completed_days": 1,
+        "weight": 1
+      },
+      {
+        "completed_days": 7,
+        "weight": 1.5
+      },
+      {
+        "completed_days": 30,
+        "weight": 2
+      }
+    ],
+    "formula": "User payout = funded holder budget * user eligible PI-weight / total eligible PI-weight. Weight is the sum of each retained cohort balance times its maturity multiplier.",
+    "qualification": "At least one full holding day; conservative daily buckets can add less than a day. No previous funding allocation is awarded to a new acquisition.",
+    "meaning": "Multipliers divide a finite pot; they never multiply the pot or promise a fixed return.",
+    "settlement_target_seconds": 900,
+    "settlement_execution": "Permissionless keeper processing at most once per target round, only with pending funded work and economical batches. Low activity accumulates revenue for a later batch. No mandatory native-coin push to every wallet every 15 minutes.",
+    "funding_event": "Entitlements arise when proceeds are received and allocated against the eligible ledger at settlement, not from an assumed earlier USD fee value.",
+    "claims": "Claim credited BNB whenever desired, with WBNB fallback. Selling or moving PI never erases previously earned rewards. A shortage must preserve the unpaid remainder or revert the claim.",
+    "empty_eligibility": "Carry the entire holder budget as an unallocated reserve. Do not renormalize it into buybacks, liquidity or operations.",
+    "excluded": [
+      "Pools",
+      "Bonding inventory",
+      "Token/fee processing/reward contracts",
+      "Burn addresses",
+      "Protocol-owned treasury and liquidity balances"
+    ],
+    "zero_activity": "No fee receipts create no new rewards. Existing credited liabilities remain backed and claimable."
+  },
+  "tax_budget": {
+    "holders_pct": 70,
+    "buyback_burn_pct": 15,
+    "liquidity_pct": 10,
+    "operations_pct": 5,
+    "denominator": "Actual received project-tax quote proceeds. Never use total trading volume as the allocation denominator, and never include the platform's separate fees.",
+    "precision": "Cumulative integer allocation targets preserve dust until enough receipts accrue. Keep each budget and its spending separate.",
+    "buyback_burn": "Reserve quote during bonding. After graduation, execute bounded market purchases of PI and irreversibly burn or send the acquired PI to the verified burn destination. Failed or uneconomic execution leaves the budget reserved.",
+    "buyback_economics": "Post-migration fee PI is sold to fund BNB budgets. Buying PI back with 15 percent of those proceeds incurs additional swap costs; it is not an independent external source of buying demand or guaranteed price appreciation. Do not count internal processor swaps as fresh protocol tax revenue.",
+    "liquidity": "Reserve quote during bonding. After graduation, pair quote with purchased or appropriately retained PI and add liquidity. Use actual fills and retain unused assets. Verify permanent lock/burn custody for protocol LP.",
+    "operations": "Pays processing gas and operating expenses only from its 5 percent allocation. It cannot withdraw holder, buyback or liquidity reserves.",
+    "processing_budget": "Target total processor gas at no more than 1 percent of the associated fee budget, or 20 percent of its operations allocation. Batch thresholds must adapt to actual measured gas costs. Avoid spending at low volume solely to satisfy a clock.",
+    "failure_policy": "Deferred conversion, buyback, liquidity or payout work must not block ordinary token exits. Credit only realized assets and retain unpaid debts."
+  },
+  "calibration": {
+    "reason_for_front_loaded_decay": "The penalty remains highest for fast exits, then becomes meaningfully lower over the first two weeks. Daily interpolation avoids holding the 10 percent ceiling for most of the month.",
+    "reason_for_2x_weight_cap": "Adds a bounded loyalty advantage while keeping newly qualified holders competitive; reward solvency is independent of this weight because the entire pot is normalized.",
+    "market_limit": "A mathematically funded ledger is not proof of sufficient future volume, stable token price or guaranteed holder profit. Those outcomes cannot be established by choosing tax percentages.",
+    "reason_for_5_percent_buy": "Selected project buy tax. Higher per-unit fee receipts also create greater entry friction."
+  }
+}

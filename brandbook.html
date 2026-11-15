@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>π - BRAND_BOOK · v0.1.0</title>
+  <meta name="description" content="The π PASSIVE_INCOME brand book - identity, palette, typography, components, motion." />
+  <link rel="stylesheet" href="fonts.css" />
+  <!-- access gate · loaded first so the blank-out rule applies at first paint -->
+  <link rel="stylesheet" href="gate.css" />
+  <script src="gate.js"></script>
+  <script>
+    (function(){
+      try {
+        const t = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="bnb.css" />
+  <link rel="stylesheet" href="brandbook.css" />
+</head>
+<body class="bb-body">
+
+  <!-- scroll progress bar -->
+  <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- crosshair cursor -->
+  <div class="cursor" aria-hidden="true">
+    <svg viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <line x1="0"  y1="13" x2="26" y2="13" stroke="#0e1014" stroke-width="5" stroke-linecap="round"/>
+      <line x1="13" y1="0"  x2="13" y2="26" stroke="#0e1014" stroke-width="5" stroke-linecap="round"/>
+      <line x1="0"  y1="13" x2="26" y2="13" stroke="#c8ff3a" stroke-width="3"/>
+      <line x1="13" y1="0"  x2="13" y2="26" stroke="#c8ff3a" stroke-width="3"/>
+    </svg>
+  </div>
+
+  <!-- system status bar -->
+  <div class="sysbar">
+    <div class="sysbar-inner">
+      <div class="sysbar-l">
+        <span class="sb-app">// BRAND_BOOK</span>
+        <span class="sb-sep">·</span>
+        <span class="sb-net">v0.1.0</span>
+      </div>
+      <div class="sysbar-r">
+        <span id="sb-clock">SAT 02 MAY · 09:14:00</span>
+        <span class="sb-sep">·</span>
+        <button id="theme-toggle" class="theme-toggle" type="button">[ DARK ]</button>
+        <span class="sb-sep">·</span>
+        <span class="led led-sm" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- topbar -->
+  <header class="top">
+    <div class="top-inner">
+      <div class="brand">
+        <span class="mark">π</span>
+        <span class="brand-name">BRAND_BOOK</span>
+        <span class="brand-tic">[ v0.1.0 ]</span>
+      </div>
+      <nav class="nav">
+        <a href="#cover"     class="nav-item is-active">(00) COVER</a>
+        <a href="#identity"  class="nav-item">(01) IDENTITY</a>
+        <a href="#palette"   class="nav-item">(02) PALETTE</a>
+        <a href="#type"      class="nav-item">(03) TYPE</a>
+        <a href="#components" class="nav-item">(04) COMPONENTS</a>
+        <a href="#motion"    class="nav-item">(05) MOTION</a>
+        <a href="#voice"     class="nav-item">(06) VOICE</a>
+      </nav>
+      <a class='cta-mini' href='/'>← BACK HOME</a>
+    </div>
+  </header>
+
+
+  <!-- ===========================================================
+       COVER - sci-fi monitor with the brand on screen
+       =========================================================== -->
+  <section id="cover" class="bb-cover">
+    <div class="container">
+      <div class="bb-cover-head">
+        <div class="bb-cover-meta">// BRAND_BOOK · v0.1.0 · COMPLETE_ASSETS</div>
+        <h1 class="bb-cover-h">
+          PASSIVE_<span class="hl hl-lime">INCOME</span>
+        </h1>
+        <p class="bb-cover-sub">A complete visual identity, component, and motion reference for the π token. Recovered visual reference with updated BNB model examples.</p>
+      </div>
+
+      <!-- sci-fi monitor mockup -->
+      <div class="bb-monitor">
+        <div class="bb-monitor-bezel">
+          <div class="bb-monitor-statusbar">
+            <span class="bb-monitor-status-l"><span class="led led-sm"></span> LIVE_PREVIEW · CRT_03</span>
+            <span class="bb-monitor-status-c">// MODEL π-1976 / N-CLASS</span>
+            <span class="bb-monitor-status-r">SAT 02 MAY · 14:32</span>
+          </div>
+          <div class="bb-monitor-screen">
+            <div class="bb-monitor-content">
+              <!-- mini sysbar -->
+              <div class="bb-mini-sys">
+                <span>// SYS · BNB · REVIEW · v0.1.0</span>
+                <span>SAT 02 MAY · 14:32  · ●</span>
+              </div>
+              <!-- mini topbar -->
+              <div class="bb-mini-top">
+                <div class="bb-mini-brand"><span class="bb-mini-mark">π</span> PASSIVE_INCOME</div>
+                <div class="bb-mini-nav">(01) HERO · (02) MECH · (03) REWARDS · (05) ROADMAP</div>
+                <div class="bb-mini-cta">BUY $π →</div>
+              </div>
+              <!-- mini countdown bar -->
+              <div class="bb-mini-cd">
+                <span>// TARGET · SETTLEMENT_WINDOW</span>
+                <span class="bb-mini-cd-time">00:14:59</span>
+                <span>● 15M TARGET</span>
+              </div>
+              <!-- mini hero -->
+              <div class="bb-mini-hero">
+                <div class="bb-mini-hero-left">
+                  <div class="bb-mini-hero-num">(01) - HERO</div>
+                  <div class="bb-mini-hero-h">
+                    PATIENCE GETS <span class="bb-mini-hl">PAID</span><br/>
+                    PANIC GETS <span class="bb-mini-hl-dark">TAXED</span>
+                  </div>
+                  <div class="bb-mini-hero-sub">$π is a time-weighted redistribution system. Every trade pays the holders.</div>
+                  <div class="bb-mini-hero-ctas">
+                    <span class="bb-mini-btn bb-mini-btn-pri">BUY $π →</span>
+                    <span class="bb-mini-btn">READ THE SPEC</span>
+                  </div>
+                  <div class="bb-mini-contract">
+                    <div class="bb-mini-contract-l">CONTRACT_ADDRESS · BNB</div>
+                    <div class="bb-mini-contract-row">
+                      <code>NOT_DEPLOYED</code>
+                      <span class="bb-mini-copy">COPY</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="bb-mini-hero-right">
+                  <div class="bb-mini-pi-badge">
+                    <div class="bb-mini-pi-top"><span>// $π</span><span>● LIVE</span></div>
+                    <div class="bb-mini-pi-glyph">π</div>
+                    <div class="bb-mini-pi-bot"><span>v0.1.0</span><span>TIME-WEIGHTED</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- screen overlays -->
+            <div class="bb-monitor-noise" aria-hidden="true"></div>
+            <div class="bb-monitor-scan" aria-hidden="true"></div>
+            <div class="bb-monitor-vignette" aria-hidden="true"></div>
+          </div>
+          <div class="bb-monitor-footbar">
+            <span><span class="bb-monitor-screw"></span> π · PASSIVE_INCOME</span>
+            <span class="bb-monitor-foot-c">// CRT_03 · ANALOG_SAFE_AREA</span>
+            <span>v0.1.0 <span class="bb-monitor-screw"></span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bb-cover-stats">
+        <div><span class="bb-cs-l">// SECTIONS</span><span class="bb-cs-v">07</span></div>
+        <div><span class="bb-cs-l">// COLORS</span><span class="bb-cs-v">12</span></div>
+        <div><span class="bb-cs-l">// TYPEFACES</span><span class="bb-cs-v">03</span></div>
+        <div><span class="bb-cs-l">// COMPONENTS</span><span class="bb-cs-v">18</span></div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="sec-div">// END_OF_(00) · NEXT_UP (01) IDENTITY</div>
+
+
+  <!-- ===========================================================
+       (01) IDENTITY
+       =========================================================== -->
+  <section id="identity" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-num">(01) - IDENTITY</div>
+        <h2 class="section-title">THE <span class="hl hl-lime">MARK</span></h2>
+        <p class="section-sub">// the π glyph · primary logomark · always lime over a dark plate</p>
+      </div>
+
+      <div class="bb-grid bb-grid-2">
+        <article class="bb-card">
+          <header class="bb-card-bar"><span>// PRIMARY_LOCKUP</span><span>(01.1)</span></header>
+          <div class="bb-card-body bb-mark-stage">
+            <div class="bb-mark-xl">
+              <span class="mark bb-mark-render">π</span>
+            </div>
+            <div class="bb-mark-spec">
+              <div><span>format</span><span>chrome plate · lime glyph</span></div>
+              <div><span>min_size</span><span>24px</span></div>
+              <div><span>clear_space</span><span>0.5× glyph height</span></div>
+              <div><span>preferred_bg</span><span>any</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="bb-card">
+          <header class="bb-card-bar"><span>// WORDMARK</span><span>(01.2)</span></header>
+          <div class="bb-card-body bb-wordmark-stage">
+            <div class="bb-wordmark">π PASSIVE_INCOME</div>
+            <div class="bb-mark-spec">
+              <div><span>typeface</span><span>JetBrains Mono · 700</span></div>
+              <div><span>letter_spacing</span><span>+0.04em</span></div>
+              <div><span>case</span><span>UPPERCASE</span></div>
+              <div><span>separator</span><span>underscore</span></div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <article class="bb-card bb-card-wide">
+        <header class="bb-card-bar"><span>// VARIATIONS</span><span>(01.3)</span></header>
+        <div class="bb-card-body bb-vars-grid">
+          <div class="bb-var">
+            <div class="bb-var-stage bb-var-stage-light"><span class="mark bb-mark-render">π</span></div>
+            <div class="bb-var-label">// PRIMARY · DARK PLATE</div>
+          </div>
+          <div class="bb-var">
+            <div class="bb-var-stage bb-var-stage-dark"><span class="mark bb-mark-render bb-mark-light">π</span></div>
+            <div class="bb-var-label">// INVERSE · LIGHT PLATE</div>
+          </div>
+          <div class="bb-var">
+            <div class="bb-var-stage bb-var-stage-lime"><span class="bb-mark-flat bb-mark-flat-dark">π</span></div>
+            <div class="bb-var-label">// FLAT · LIME GROUND</div>
+          </div>
+          <div class="bb-var">
+            <div class="bb-var-stage bb-var-stage-lightgray"><span class="bb-mark-flat bb-mark-flat-dark">π</span></div>
+            <div class="bb-var-label">// FLAT · DARK ON LIGHT</div>
+          </div>
+          <div class="bb-var">
+            <div class="bb-var-stage bb-var-stage-light">
+              <div class="bb-mark-circle"><span class="bb-mark-circle-glyph">π</span></div>
+            </div>
+            <div class="bb-var-label">// CIRCLE · DARK · PFP</div>
+          </div>
+          <div class="bb-var">
+            <div class="bb-var-stage bb-var-stage-dark">
+              <div class="bb-mark-circle bb-mark-circle-light"><span class="bb-mark-circle-glyph">π</span></div>
+            </div>
+            <div class="bb-var-label">// CIRCLE · LIGHT · PFP</div>
+          </div>
+          <div class="bb-var">
+            <div class="bb-var-stage bb-var-stage-lime">
+              <div class="bb-mark-circle bb-mark-circle-flat"><span class="bb-mark-circle-glyph bb-mark-circle-glyph-dark">π</span></div>
+            </div>
+            <div class="bb-var-label">// CIRCLE · LIME · APP_ICON</div>
+          </div>
+          <div class="bb-var">
+            <div class="bb-var-stage bb-var-stage-lightgray">
+              <div class="bb-mark-circle bb-mark-circle-outline"><span class="bb-mark-circle-glyph bb-mark-circle-glyph-dark">π</span></div>
+            </div>
+            <div class="bb-var-label">// CIRCLE · OUTLINE · MONO</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+
+  <div class="sec-div">// END_OF_(01) · NEXT_UP (02) PALETTE</div>
+
+
+  <!-- ===========================================================
+       (02) PALETTE
+       =========================================================== -->
+  <section id="palette" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-num">(02) - PALETTE</div>
+        <h2 class="section-title">THE <span class="hl hl-lime">COLORS</span></h2>
+        <p class="section-sub">// neon lime · gunmetal · phosphor green · steel grays</p>
+      </div>
+
+      <div class="bb-palette-grid">
+        <div class="bb-swatch bb-swatch-lg" style="--sw: #c8ff3a;">
+          <div class="bb-sw-block"></div>
+          <div class="bb-sw-meta">
+            <div class="bb-sw-name">PI_LIME</div>
+            <div class="bb-sw-hex">#c8ff3a</div>
+            <div class="bb-sw-use">primary accent · CTAs · highlights · LEDs</div>
+          </div>
+        </div>
+        <div class="bb-swatch bb-swatch-lg" style="--sw: #0e1014;">
+          <div class="bb-sw-block"></div>
+          <div class="bb-sw-meta">
+            <div class="bb-sw-name">DEEP_INK</div>
+            <div class="bb-sw-hex">#0e1014</div>
+            <div class="bb-sw-use">primary text · inverse plate · contrast</div>
+          </div>
+        </div>
+
+        <div class="bb-swatch" style="--sw: #dee1e5;">
+          <div class="bb-sw-block"></div>
+          <div class="bb-sw-meta">
+            <div class="bb-sw-name">FOG_GRAY</div>
+            <div class="bb-sw-hex">#dee1e5</div>
+            <div class="bb-sw-use">page background · light mode</div>
+          </div>
+        </div>
+        <div class="bb-swatch" style="--sw: #16191f;">
+          <div class="bb-sw-block"></div>
+          <div class="bb-sw-meta">
+            <div class="bb-sw-name">GUNMETAL</div>
+            <div class="bb-sw-hex">#16191f</div>
+            <div class="bb-sw-use">page background · dark mode</div>
+          </div>
+        </div>
+        <div class="bb-swatch" style="--sw: #ffffff;">
+          <div class="bb-sw-block bb-sw-bordered"></div>
+          <div class="bb-sw-meta">
+            <div class="bb-sw-name">PURE_WHITE</div>
+            <div class="bb-sw-hex">#ffffff</div>
+            <div class="bb-sw-use">card top · specular highlight</div>
+          </div>
+        </div>
+        <div class="bb-swatch" style="--sw: #9ba0a7;">
+          <div class="bb-sw-block"></div>
+          <div class="bb-sw-meta">
+            <div class="bb-sw-name">STEEL_BASE</div>
+            <div class="bb-sw-hex">#9ba0a7</div>
+            <div class="bb-sw-use">card bottom · shadow tone</div>
+          </div>
+        </div>
+        <div class="bb-swatch" style="--sw: #2050ff;">
+          <div class="bb-sw-block"></div>
+          <div class="bb-sw-meta">
+            <div class="bb-sw-name">CIRCUIT_BLUE</div>
+            <div class="bb-sw-hex">#2050ff</div>
+            <div class="bb-sw-use">secondary accent · system links</div>
+          </div>
+        </div>
+        <div class="bb-swatch" style="--sw: #6a6f78;">
+          <div class="bb-sw-block"></div>
+          <div class="bb-sw-meta">
+            <div class="bb-sw-name">DUSK_GRAY</div>
+            <div class="bb-sw-hex">#6a6f78</div>
+            <div class="bb-sw-use">dim text · captions · meta</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bb-palette-rules">
+        <div class="bb-rule">
+          <div class="bb-rule-tag">[ DO ]</div>
+          <div class="bb-rule-body">PI_LIME on DEEP_INK is the signature pairing. Use it for the loudest moments - buttons, indicators, the main π glyph.</div>
+        </div>
+        <div class="bb-rule">
+          <div class="bb-rule-tag">[ DO ]</div>
+          <div class="bb-rule-body">Pair grays for hierarchy. STEEL_BASE → FOG_GRAY → PURE_WHITE makes a chrome plate gradient.</div>
+        </div>
+        <div class="bb-rule">
+          <div class="bb-rule-tag bb-rule-no">[ DON'T ]</div>
+          <div class="bb-rule-body">Don't use red anywhere. Even for "warning" states. The brand stays in lime + grays only.</div>
+        </div>
+        <div class="bb-rule">
+          <div class="bb-rule-tag bb-rule-no">[ DON'T ]</div>
+          <div class="bb-rule-body">Don't put PI_LIME on a light bg without a dark plate. Lime needs dark contrast to read as "powered on."</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="sec-div">// END_OF_(02) · NEXT_UP (03) TYPOGRAPHY</div>
+
+
+  <!-- ===========================================================
+       (03) TYPOGRAPHY
+       =========================================================== -->
+  <section id="type" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-num">(03) - TYPOGRAPHY</div>
+        <h2 class="section-title">THE <span class="hl hl-lime">VOICE_FACE</span></h2>
+        <p class="section-sub">// three families · each with a job</p>
+      </div>
+
+      <article class="bb-card bb-card-wide bb-type-card">
+        <header class="bb-card-bar"><span>// DISPLAY</span><span>SPACE_GROTESK 700</span></header>
+        <div class="bb-card-body">
+          <div class="bb-type-spec" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:96px;line-height:0.95;letter-spacing:-0.02em;">
+            PATIENCE GETS PAID.
+          </div>
+          <div class="bb-type-meta">
+            <div><span>USAGE</span><span>section titles · hero taglines</span></div>
+            <div><span>WEIGHT</span><span>700 (Bold)</span></div>
+            <div><span>RANGE</span><span>28px → 88px</span></div>
+            <div><span>TRACKING</span><span>-0.02em</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="bb-card bb-card-wide bb-type-card">
+        <header class="bb-card-bar"><span>// MONO</span><span>JETBRAINS_MONO 400/500/700</span></header>
+        <div class="bb-card-body">
+          <div class="bb-type-spec" style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:48px;line-height:1;letter-spacing:0;">
+            // SYS · BNB · REVIEW · v0.1.0
+          </div>
+          <div class="bb-type-meta">
+            <div><span>USAGE</span><span>UI labels · system text · code</span></div>
+            <div><span>WEIGHTS</span><span>400 / 500 / 700</span></div>
+            <div><span>RANGE</span><span>9px → 22px</span></div>
+            <div><span>TRACKING</span><span>+0.04em → +0.18em</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="bb-card bb-card-wide bb-type-card">
+        <header class="bb-card-bar"><span>// BODY</span><span>INTER 400/500/600/700</span></header>
+        <div class="bb-card-body">
+          <div class="bb-type-spec" style="font-family:'Inter',sans-serif;font-weight:500;font-size:24px;line-height:1.5;letter-spacing:0;">
+            $π is a time-weighted redistribution system. Every trade pays the holders.
+          </div>
+          <div class="bb-type-meta">
+            <div><span>USAGE</span><span>body copy · descriptions</span></div>
+            <div><span>WEIGHTS</span><span>400 / 500 / 600 / 700</span></div>
+            <div><span>RANGE</span><span>13px → 18px</span></div>
+            <div><span>TRACKING</span><span>0</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="bb-card bb-card-wide bb-type-card">
+        <header class="bb-card-bar"><span>// HIERARCHY</span><span>(03.4)</span></header>
+        <div class="bb-card-body bb-hier-stack">
+          <div class="bb-hier-row"><span class="bb-hier-spec">H1 · 60px / Display 700</span><span style="font-family:var(--display);font-weight:700;font-size:42px;line-height:1;">HEADLINE</span></div>
+          <div class="bb-hier-row"><span class="bb-hier-spec">H2 · 40px / Display 700</span><span style="font-family:var(--display);font-weight:700;font-size:32px;line-height:1;">SECTION TITLE</span></div>
+          <div class="bb-hier-row"><span class="bb-hier-spec">H3 · 13px / Mono 700</span><span style="font-family:var(--mono);font-weight:700;font-size:13px;letter-spacing:.04em;background:var(--lime);color:#0e1014;padding:3px 8px;">CARD_HEADER</span></div>
+          <div class="bb-hier-row"><span class="bb-hier-spec">Body · 15px / Inter 400</span><span style="font-family:var(--sans);font-size:15px;">Default body copy. Comfortable to read at arm's length.</span></div>
+          <div class="bb-hier-row"><span class="bb-hier-spec">Mono Label · 11px / Mono 700</span><span style="font-family:var(--mono);font-weight:700;font-size:11px;letter-spacing:.14em;color:var(--text-dim);">// SYSTEM_LABEL</span></div>
+          <div class="bb-hier-row"><span class="bb-hier-spec">Caption · 10px / Mono 500</span><span style="font-family:var(--mono);font-weight:500;font-size:10px;letter-spacing:.12em;color:var(--text-mute);">// META_FOOTNOTE</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+
+  <div class="sec-div">// END_OF_(03) · NEXT_UP (04) COMPONENTS</div>
+
+
+  <!-- ===========================================================
+       (04) COMPONENTS
+       =========================================================== -->
+  <section id="components" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-num">(04) - COMPONENTS</div>
+        <h2 class="section-title">THE <span class="hl hl-lime">PARTS</span></h2>
+        <p class="section-sub">// reusable building blocks · live samples</p>
+      </div>
+
+      <article class="bb-card bb-card-wide">
+        <header class="bb-card-bar"><span>// BUTTONS</span><span>(04.1)</span></header>
+        <div class="bb-card-body bb-component-row">
+          <div class="bb-component">
+            <a href="#" class="btn btn-pri">BUY $π →</a>
+            <span class="bb-component-tag">.btn-pri · primary CTA</span>
+          </div>
+          <div class="bb-component">
+            <a href="#" class="btn">READ THE SPEC</a>
+            <span class="bb-component-tag">.btn · secondary</span>
+          </div>
+          <div class="bb-component">
+            <a href="#" class="cta-mini">BUY $π →</a>
+            <span class="bb-component-tag">.cta-mini · chrome chip</span>
+          </div>
+          <div class="bb-component">
+            <button class="copy-btn">COPY</button>
+            <span class="bb-component-tag">.copy-btn · inline action</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="bb-card bb-card-wide">
+        <header class="bb-card-bar"><span>// HIGHLIGHT_BLOCKS</span><span>(04.2)</span></header>
+        <div class="bb-card-body bb-component-row">
+          <div class="bb-component">
+            <span class="hl hl-lime">PAID</span>
+            <span class="bb-component-tag">.hl-lime · positive</span>
+          </div>
+          <div class="bb-component">
+            <span class="hl hl-dark">TAXED</span>
+            <span class="bb-component-tag">.hl-dark · inverse</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="bb-card bb-card-wide">
+        <header class="bb-card-bar"><span>// INDICATORS</span><span>(04.3)</span></header>
+        <div class="bb-card-body bb-component-row">
+          <div class="bb-component">
+            <span class="led" aria-hidden="true"></span>
+            <span class="bb-component-tag">.led · pulsing status</span>
+          </div>
+          <div class="bb-component">
+            <span class="led led-sm" aria-hidden="true"></span>
+            <span class="bb-component-tag">.led-sm · small variant</span>
+          </div>
+          <div class="bb-component">
+            <span class="hl hl-lime" style="font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.04em;padding:2px 8px;">PRE-LAUNCH</span>
+            <span class="bb-component-tag">status pill</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="bb-card bb-card-wide">
+        <header class="bb-card-bar"><span>// PILLS</span><span>(04.4)</span></header>
+        <div class="bb-card-body bb-component-row">
+          <div class="bb-component">
+            <div class="calc-pills">
+              <button class="is-on">15m</button>
+              <button>24h</button>
+              <button>7d</button>
+            </div>
+            <span class="bb-component-tag">.calc-pills · segmented</span>
+          </div>
+          <div class="bb-component">
+            <div class="cycle-toggle">
+              <button>15M</button>
+              <button class="is-on">24H</button>
+            </div>
+            <span class="bb-component-tag">.cycle-toggle · binary switch</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="bb-card bb-card-wide">
+        <header class="bb-card-bar"><span>// CARDS · CHROME</span><span>(04.5)</span></header>
+        <div class="bb-card-body bb-cards-grid">
+          <div class="bb-mini-card">
+            <div class="bb-mc-num">(04.5.1)</div>
+            <div class="bb-mc-h">CHROME_PANEL</div>
+            <div class="bb-mc-p">Polished steel gradient with sheen + top highlight + drop shadow.</div>
+          </div>
+          <div class="bb-mini-card glow-frame">
+            <span class="glow-ring glow-cw" aria-hidden="true"></span>
+            <span class="glow-ring glow-ccw" aria-hidden="true"></span>
+            <div class="bb-mc-num">(04.5.2)</div>
+            <div class="bb-mc-h">GLOW_FRAME</div>
+            <div class="bb-mc-p">Conic-gradient comet trails crawling around the border in opposite directions.</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="bb-card bb-card-wide">
+        <header class="bb-card-bar"><span>// LCD_DISPLAY</span><span>(04.6)</span></header>
+        <div class="bb-card-body">
+          <div class="bb-lcd-stage">
+            <span class="bb-lcd-time">03:52:35</span>
+            <div class="bb-lcd-meta">
+              <span>// COUNTDOWN_DISPLAY</span>
+              <span>JetBrains Mono 700 · lime glow text-shadow · phosphor scanline overlay</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+
+  <div class="sec-div">// END_OF_(04) · NEXT_UP (05) MOTION</div>
+
+
+  <!-- ===========================================================
+       (05) MOTION
+       =========================================================== -->
+  <section id="motion" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-num">(05) - MOTION</div>
+        <h2 class="section-title">THE <span class="hl hl-lime">MOVEMENT</span></h2>
+        <p class="section-sub">// purposeful animations · slow ease-in-out · always honoring prefers-reduced-motion</p>
+      </div>
+
+      <div class="bb-grid bb-grid-2">
+        <article class="bb-card">
+          <header class="bb-card-bar"><span>// LED_PULSE</span><span>(05.1)</span></header>
+          <div class="bb-card-body bb-motion-stage">
+            <span class="led" style="width:18px;height:18px;"></span>
+            <div class="bb-motion-spec">
+              <div><span>duration</span><span>2.2s</span></div>
+              <div><span>ease</span><span>ease-in-out</span></div>
+              <div><span>property</span><span>opacity + box-shadow</span></div>
+              <div><span>usage</span><span>live status indicators</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="bb-card">
+          <header class="bb-card-bar"><span>// PI_BREATHE</span><span>(05.2)</span></header>
+          <div class="bb-card-body bb-motion-stage bb-breathe-stage">
+            <span class="bb-breathe-glyph">π</span>
+            <div class="bb-motion-spec">
+              <div><span>duration</span><span>4.6s</span></div>
+              <div><span>ease</span><span>ease-in-out</span></div>
+              <div><span>property</span><span>text-shadow blur + opacity</span></div>
+              <div><span>usage</span><span>π badge glow inhale/exhale</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="bb-card">
+          <header class="bb-card-bar"><span>// CHROME_SWEEP</span><span>(05.3)</span></header>
+          <div class="bb-card-body bb-motion-stage bb-sweep-stage">
+            <div class="bb-sweep-plate">
+              <span class="bb-sweep-band"></span>
+              <span class="bb-sweep-glyph">π</span>
+            </div>
+            <div class="bb-motion-spec">
+              <div><span>duration</span><span>7s</span></div>
+              <div><span>ease</span><span>ease-in-out</span></div>
+              <div><span>property</span><span>diagonal gradient translateX</span></div>
+              <div><span>usage</span><span>polished metal surfaces</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="bb-card">
+          <header class="bb-card-bar"><span>// GLOW_CRAWL</span><span>(05.4)</span></header>
+          <div class="bb-card-body bb-motion-stage">
+            <div class="bb-crawl-stage glow-frame">
+              <span class="glow-ring glow-cw" aria-hidden="true"></span>
+              <span class="glow-ring glow-ccw" aria-hidden="true"></span>
+              <span class="bb-crawl-label">// IMPORTANT_FRAME</span>
+            </div>
+            <div class="bb-motion-spec">
+              <div><span>duration</span><span>6s</span></div>
+              <div><span>ease</span><span>linear</span></div>
+              <div><span>property</span><span>conic-gradient angle</span></div>
+              <div><span>usage</span><span>highlight critical containers</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="bb-card bb-card-wide">
+          <header class="bb-card-bar"><span>// GLITCH_REVEAL</span><span>(05.5)</span></header>
+          <div class="bb-card-body bb-motion-stage bb-glitch-stage">
+            <div class="bb-glitch-text" id="bb-glitch-target">PATIENCE GETS PAID</div>
+            <button class="btn btn-pri" id="bb-glitch-trigger" type="button">RE-RUN</button>
+            <div class="bb-motion-spec bb-motion-spec-wide">
+              <div><span>duration</span><span>~1.1s reveal · 60+ frames</span></div>
+              <div><span>characters</span><span>uppercase letters only (uniform width)</span></div>
+              <div><span>technique</span><span>requestAnimationFrame · per-character progressive reveal</span></div>
+              <div><span>usage</span><span>section titles on hover · hero on intro</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="bb-card bb-card-wide">
+          <header class="bb-card-bar"><span>// TV_POWER_ON</span><span>(05.6)</span></header>
+          <div class="bb-card-body bb-motion-stage bb-tv-stage">
+            <div class="bb-tv-inner">
+              <button class="btn btn-pri" id="bb-tv-trigger" type="button">TRIGGER TV INTRO</button>
+              <div class="bb-tv-meta">// fires the page-load CRT animation: black → thin lime line → vertical balloon → fade</div>
+            </div>
+            <div class="bb-motion-spec bb-motion-spec-wide">
+              <div><span>duration</span><span>~1.0s total</span></div>
+              <div><span>phases</span><span>black hold → x-scale → y-scale → fade-out</span></div>
+              <div><span>usage</span><span>page-load brand entrance</span></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="sec-div">// END_OF_(05) · NEXT_UP (06) VOICE</div>
+
+
+  <!-- ===========================================================
+       (06) VOICE
+       =========================================================== -->
+  <section id="voice" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-num">(06) - VOICE</div>
+        <h2 class="section-title">THE <span class="hl hl-lime">TONE</span></h2>
+        <p class="section-sub">// honest · technical · zero hype · dry sense of humor</p>
+      </div>
+
+      <div class="bb-grid bb-grid-2">
+        <article class="bb-card">
+          <header class="bb-card-bar"><span>// PRIMARY_TAGLINE</span><span>(06.1)</span></header>
+          <div class="bb-card-body bb-tagline-stage">
+            <div class="bb-tagline">
+              PATIENCE GETS <span class="hl hl-lime">PAID</span>.<br/>
+              PANIC GETS <span class="hl hl-dark">TAXED</span>.
+            </div>
+          </div>
+        </article>
+
+        <article class="bb-card">
+          <header class="bb-card-bar"><span>// VARIATIONS</span><span>(06.2)</span></header>
+          <div class="bb-card-body bb-variants-stack">
+            <div class="bb-variant">"The longer you hold, the more you earn."</div>
+            <div class="bb-variant">"Early sellers pay more. Long-term holders pay less."</div>
+            <div class="bb-variant">"Rewards driven by activity, amplified by patience."</div>
+            <div class="bb-variant">"Time-weighted redistribution."</div>
+          </div>
+        </article>
+      </div>
+
+      <article class="bb-card bb-card-wide">
+        <header class="bb-card-bar"><span>// VOICE_MATRIX</span><span>(06.3)</span></header>
+        <div class="bb-card-body bb-voice-matrix">
+          <div class="bb-voice-col">
+            <div class="bb-voice-tag bb-voice-yes">[ WE ARE ]</div>
+            <ul>
+              <li>Honest about the mechanics</li>
+              <li>Technical and precise</li>
+              <li>Calm - no shouting</li>
+              <li>Dry, occasional wit</li>
+              <li>Engineering-led</li>
+            </ul>
+          </div>
+          <div class="bb-voice-col">
+            <div class="bb-voice-tag bb-voice-no">[ WE ARE NOT ]</div>
+            <ul>
+              <li>"To the moon" or rocket emojis</li>
+              <li>"GM frens", "wagmi", "ngmi"</li>
+              <li>Promising guaranteed yield</li>
+              <li>Hiding the mechanism</li>
+              <li>Anonymous insider posting</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+
+  <div class="sec-div">// END_OF_(06) · NEXT_UP (07) APPLICATIONS</div>
+
+
+  <!-- ===========================================================
+       (07) APPLICATIONS - focus on X (Twitter) presence
+       =========================================================== -->
+  <section id="applications" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-num">(07) - APPLICATIONS</div>
+        <h2 class="section-title">THE <span class="hl hl-lime">X PRESENCE</span></h2>
+        <p class="section-sub">// our main surface · post formats · profile · cover</p>
+      </div>
+
+      <!-- 3 tweet variants -->
+      <div class="bb-grid bb-grid-3">
+
+        <article class="bb-card">
+          <header class="bb-card-bar"><span>// MOCKUP · TEXT_ONLY</span><span>(07.1)</span></header>
+          <div class="bb-card-body bb-app-stage">
+            <div class="bb-tweet">
+              <div class="bb-tweet-header">
+                <div class="bb-tweet-pfp">
+                  <span class="bb-pfp-render">π</span>
+                </div>
+                <div class="bb-tweet-name">
+                  <strong>π PASSIVE_INCOME <span class="bb-tweet-verified" aria-label="verified">✓</span></strong>
+                  <span class="bb-tweet-handle">@pi_holders</span>
+                </div>
+                <span class="bb-tweet-dots">···</span>
+              </div>
+              <div class="bb-tweet-body">
+                The math is simple:<br/><br/>
+                <span class="bb-tweet-mono">your_payout = funded_pool × your_weight / total_weight</span><br/><br/>
+                The longer you hold, the bigger your multiplier.<br/>
+                Time &gt; timing.
+              </div>
+              <div class="bb-tweet-time">2:14 PM · MAY 02, 2026</div>
+              <div class="bb-tweet-actions">
+                <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M1.751 10c0-4.42 3.584-8 8.005-8h4.366c4.49 0 8.129 3.64 8.129 8.13 0 2.96-1.607 5.68-4.196 7.11l-8.054 4.46v-3.69h-.067c-4.49.1-8.183-3.51-8.183-8.01zm8.005-6c-3.317 0-6.005 2.69-6.005 6 0 3.37 2.77 6.08 6.138 6.01l.351-.01h1.761v2.3l5.087-2.81c1.951-1.08 3.163-3.13 3.163-5.36 0-3.39-2.744-6.13-6.129-6.13H9.756z"/></svg> 142</span>
+                <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.75 3.79l4.603 4.3-1.706 1.82L6 8.38v7.37c0 .97.784 1.75 1.75 1.75H13V20H7.75c-2.347 0-4.25-1.9-4.25-4.25V8.38L1.853 9.91.147 8.09l4.603-4.3zm11.5 2.21H11V3.5h5.25c2.347 0 4.25 1.9 4.25 4.25v7.37l1.647-1.53 1.706 1.82-4.603 4.3-4.603-4.3 1.706-1.82L18 15.62V8.25c0-.97-.784-1.75-1.75-1.75z"/></svg> 89</span>
+                <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.697 5.5c-1.222-.06-2.679.51-3.89 2.16l-.805 1.09-.806-1.09C9.984 6.01 8.526 5.44 7.304 5.5c-1.243.07-2.349.78-2.91 1.91-.552 1.12-.633 2.78.479 4.82 1.074 1.97 3.257 4.27 7.129 6.61 3.87-2.34 6.052-4.64 7.126-6.61 1.111-2.04 1.03-3.7.477-4.82-.561-1.13-1.666-1.84-2.908-1.91zm4.187 7.69c-1.351 2.48-4.001 5.12-8.379 7.67l-.503.3-.504-.3c-4.379-2.55-7.029-5.19-8.382-7.67-1.36-2.5-1.41-4.86-.514-6.67.887-1.79 2.647-2.91 4.601-3.01 1.651-.09 3.368.56 4.798 2.01 1.429-1.45 3.146-2.1 4.796-2.01 1.954.1 3.714 1.22 4.601 3.01.896 1.81.846 4.17-.514 6.67z"/></svg> 837</span>
+                <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.75 21V3h2v18h-2zM18 21V8.5h2V21h-2zM4 21l.004-10h2L6 21H4zm9.248 0v-7h2v7h-2z"/></svg> 12.4K</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="bb-card">
+          <header class="bb-card-bar"><span>// MOCKUP · TEXT + VISUAL</span><span>(07.2)</span></header>
+          <div class="bb-card-body bb-app-stage">
+            <div class="bb-tweet">
+              <div class="bb-tweet-header">
+                <div class="bb-tweet-pfp">
+                  <span class="bb-pfp-render">π</span>
+                </div>
+                <div class="bb-tweet-name">
+                  <strong>π PASSIVE_INCOME <span class="bb-tweet-verified">✓</span></strong>
+                  <span class="bb-tweet-handle">@pi_holders</span>
+                </div>
+                <span class="bb-tweet-dots">···</span>
+              </div>
+              <div class="bb-tweet-body">
+                BNB reward distribution.<br/>
+                Funded entitlements, weighted by holding age. Review build.
+              </div>
+              <div class="bb-tweet-media bb-tweet-media-img">
+                <div class="bb-stat-card">
+                  <div class="bb-stat-bar">
+                    <span>// REWARD_MODEL · PRE-LAUNCH</span>
+                    <span><span class="led led-sm"></span> PENDING</span>
+                  </div>
+                  <div class="bb-stat-grid">
+                    <div><span class="bb-stat-l">HOLDERS</span><span class="bb-stat-v">PENDING</span></div>
+                    <div><span class="bb-stat-l">POOL</span><span class="bb-stat-v">0 BNB</span></div>
+                    <div><span class="bb-stat-l">TOP_PAY</span><span class="bb-stat-v">0 BNB</span></div>
+                    <div><span class="bb-stat-l">AVG</span><span class="bb-stat-v">0 BNB</span></div>
+                  </div>
+                  <div class="bb-stat-foot">
+                    <span class="bb-stat-glyph">π</span>
+                    <span class="bb-stat-line">PATIENCE GETS PAID</span>
+                  </div>
+                </div>
+              </div>
+              <div class="bb-tweet-time">8:00 AM · MAY 02, 2026</div>
+              <div class="bb-tweet-actions">
+                <span>↳ 247</span>
+                <span>↺ 412</span>
+                <span>♡ 2.1K</span>
+                <span>▥ 38.7K</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="bb-card">
+          <header class="bb-card-bar"><span>// TWEET · TEXT + GIF</span><span>(07.3)</span></header>
+          <div class="bb-card-body bb-app-stage">
+            <div class="bb-tweet">
+              <div class="bb-tweet-header">
+                <div class="bb-tweet-pfp">
+                  <span class="bb-pfp-render">π</span>
+                </div>
+                <div class="bb-tweet-name">
+                  <strong>π PASSIVE_INCOME <span class="bb-tweet-verified">✓</span></strong>
+                  <span class="bb-tweet-handle">@pi_holders</span>
+                </div>
+                <span class="bb-tweet-dots">···</span>
+              </div>
+              <div class="bb-tweet-body">
+                Funded settlement targets 15-minute rounds.<br/>
+                Claim accrued BNB when you choose.
+              </div>
+              <div class="bb-tweet-media bb-tweet-media-gif">
+                <div class="bb-gif-stage">
+                  <span class="bb-gif-label">// REVIEW</span>
+                  <span class="bb-gif-time" id="bb-tweet-timer">00:14:59</span>
+                  <span class="bb-gif-foot">15M TARGET · FUNDED ROUNDS</span>
+                </div>
+                <span class="bb-gif-tag">GIF</span>
+              </div>
+              <div class="bb-tweet-time">11:30 AM · MAY 02, 2026</div>
+              <div class="bb-tweet-actions">
+                <span>↳ 78</span>
+                <span>↺ 156</span>
+                <span>♡ 1.2K</span>
+                <span>▥ 22.3K</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- PFP variations -->
+      <article class="bb-card bb-card-wide">
+        <header class="bb-card-bar"><span>// X · PROFILE_IMAGE</span><span>(07.4)</span></header>
+        <div class="bb-card-body bb-pfp-grid">
+          <div class="bb-pfp-cell">
+            <div class="bb-pfp-frame bb-pfp-large">
+              <span class="bb-pfp-glyph">π</span>
+            </div>
+            <div class="bb-pfp-label">// 400×400 · SOURCE</div>
+          </div>
+          <div class="bb-pfp-cell">
+            <div class="bb-pfp-frame bb-pfp-circle bb-pfp-large">
+              <span class="bb-pfp-glyph">π</span>
+            </div>
+            <div class="bb-pfp-label">// AS_X_DISPLAYS · ROUND</div>
+          </div>
+          <div class="bb-pfp-cell">
+            <div class="bb-pfp-frame bb-pfp-circle bb-pfp-medium">
+              <span class="bb-pfp-glyph">π</span>
+            </div>
+            <div class="bb-pfp-label">// IN_FEED · 48px</div>
+          </div>
+          <div class="bb-pfp-cell">
+            <div class="bb-pfp-frame bb-pfp-circle bb-pfp-small">
+              <span class="bb-pfp-glyph">π</span>
+            </div>
+            <div class="bb-pfp-label">// FAVICON · 32px</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- X cover -->
+      <article class="bb-card bb-card-wide">
+        <header class="bb-card-bar"><span>// X · COVER · 1500×500</span><span>(07.5)</span></header>
+        <div class="bb-card-body bb-cover-card-body">
+          <div class="bb-x-cover">
+            <div class="bb-x-cover-inner">
+              <span class="bb-x-cover-glyph">π</span>
+              <div class="bb-x-cover-text">
+                <div class="bb-x-cover-name">PASSIVE_<span class="hl hl-lime">INCOME</span></div>
+                <div class="bb-x-cover-tag">// time × share = reward</div>
+                <div class="bb-x-cover-meta">BNB · PRE-LAUNCH · FAIR_LAUNCH</div>
+              </div>
+            </div>
+          </div>
+          <div class="bb-x-cover-meta-bar">
+            <span>3:1 ratio · safe area centered · π glyph &gt;= 280px tall</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- X full profile mockup -->
+      <article class="bb-card bb-card-wide">
+        <header class="bb-card-bar"><span>// X · PROFILE_PAGE</span><span>(07.6)</span></header>
+        <div class="bb-card-body bb-cover-card-body">
+          <div class="bb-x-profile">
+            <!-- banner -->
+            <div class="bb-x-prof-banner">
+              <div class="bb-x-prof-banner-inner">
+                <span class="bb-x-prof-banner-glyph">π</span>
+                <div class="bb-x-prof-banner-text">
+                  <div class="bb-x-prof-banner-name">PASSIVE_<span class="hl hl-lime">INCOME</span></div>
+                  <div class="bb-x-prof-banner-tag">// time × share = reward</div>
+                </div>
+              </div>
+            </div>
+            <!-- profile area -->
+            <div class="bb-x-prof-body">
+              <div class="bb-x-prof-toprow">
+                <div class="bb-x-prof-pfp">
+                  <span class="bb-x-prof-pfp-glyph">π</span>
+                </div>
+                <div class="bb-x-prof-actions">
+                  <button class="bb-x-prof-icon-btn">⚙</button>
+                  <button class="bb-x-prof-icon-btn">···</button>
+                  <button class="bb-x-prof-follow">Follow</button>
+                </div>
+              </div>
+              <div class="bb-x-prof-name">π PASSIVE_INCOME <span class="bb-tweet-verified">✓</span></div>
+              <div class="bb-x-prof-handle">@pi_holders</div>
+              <div class="bb-x-prof-bio">
+                Time-weighted redistribution token. Funded BNB settlement targets 15-minute rounds. The longer you hold, the bigger your slice. Patience &gt; timing.
+              </div>
+              <div class="bb-x-prof-meta">
+                <span>BNB · PRE-LAUNCH</span>
+                <span>↗ holdpi.com</span>
+                <span> Joined April 2026</span>
+              </div>
+              <div class="bb-x-prof-stats">
+                <span><strong>247</strong> Following</span>
+                <span><strong>12.4K</strong> Followers</span>
+              </div>
+              <div class="bb-x-prof-tabs">
+                <span class="bb-x-prof-tab is-on">Posts</span>
+                <span class="bb-x-prof-tab">Replies</span>
+                <span class="bb-x-prof-tab">Highlights</span>
+                <span class="bb-x-prof-tab">Media</span>
+                <span class="bb-x-prof-tab">Likes</span>
+              </div>
+              <!-- pinned post -->
+              <div class="bb-x-prof-pinned">
+                <div class="bb-x-prof-pinned-tag">📌 Pinned</div>
+                <div class="bb-tweet bb-tweet-embedded">
+                  <div class="bb-tweet-header">
+                    <div class="bb-tweet-pfp"><span class="bb-pfp-render">π</span></div>
+                    <div class="bb-tweet-name">
+                      <strong>π PASSIVE_INCOME <span class="bb-tweet-verified">✓</span></strong>
+                      <span class="bb-tweet-handle">@pi_holders · 2d</span>
+                    </div>
+                    <span class="bb-tweet-dots">···</span>
+                  </div>
+                  <div class="bb-tweet-body">
+                    The longer you hold, the bigger your multiplier.<br/>
+                    1d = 1× · 7d = 1.5× · 30d+ = 2× (cap)<br/>
+                    Time-weighted redistribution.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- supporting applications -->
+      <div class="bb-grid bb-grid-2">
+        <article class="bb-card">
+          <header class="bb-card-bar"><span>// SYSTEM_NOTIFICATION</span><span>(07.7)</span></header>
+          <div class="bb-card-body bb-app-stage">
+            <div class="bb-notif">
+              <div class="bb-notif-bar">
+                <span><span class="led led-sm"></span> // SYS_NOTIFICATION</span>
+                <span>06:00 UTC</span>
+              </div>
+              <div class="bb-notif-body">
+                <div class="bb-notif-h">DISTRIBUTION_COMPLETE</div>
+                <div class="bb-notif-row"><span>your_share</span><span>0.0318%</span></div>
+                <div class="bb-notif-row"><span>your_payout</span><span class="bb-notif-v">+ 5.41 π</span></div>
+                <div class="bb-notif-row"><span>next_drop</span><span>T-00:59:58</span></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="bb-card">
+          <header class="bb-card-bar"><span>// MERCH · TEE</span><span>(07.8)</span></header>
+          <div class="bb-card-body bb-app-stage">
+            <div class="bb-tee">
+              <div class="bb-tee-shape">
+                <div class="bb-tee-print">
+                  <span class="mark" style="font-size:48px;padding:6px 18px 8px;">π</span>
+                  <div class="bb-tee-tagline">TIME &gt; TIMING</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="bb-card">
+          <header class="bb-card-bar"><span>// STICKER · DIE_CUT</span><span>(07.9)</span></header>
+          <div class="bb-card-body bb-app-stage">
+            <div class="bb-sticker">
+              <span class="bb-sticker-glyph">π</span>
+              <span class="bb-sticker-text">PATIENCE GETS PAID</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="sec-div">// END_OF_(07) · NEXT_UP (08) DOWNLOADS</div>
+
+
+  <!-- ===========================================================
+       CLOSING
+       =========================================================== -->
+  <section id="downloads" class="section">
+    <div class="container">
+      <div class="bb-closing">
+        <div class="bb-closing-meta">// END_OF_BRAND_BOOK · STATUS_OK</div>
+        <h2 class="closing-h">
+          BUILT FOR <span class="hl hl-lime">CONVICTION</span>
+        </h2>
+        <p class="closing-sub">// the longer you hold, the more the system works for you.</p>
+        <div class="closing-actions">
+          <a class='btn btn-pri' href='/'>← BACK HOME</a>
+          <a href="#cover" class="btn">RETURN TO TOP ↑</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="sec-div">// END_OF_FILE · STATUS_OK</div>
+
+
+  <!-- minimal footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="footer-mark">π</span>
+        <div class="footer-brand-meta">
+          <div class="footer-brand-name">PASSIVE_INCOME</div>
+          <div class="footer-brand-tag">// brand book v0.1.0</div>
+          <div class="footer-chain">BNB · PRE-LAUNCH</div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-h">// LINKS</div>
+        <a class='footer-link' href='/'>→ Back home</a>
+        <a href="#cover" class="footer-link">→ Top of book</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-h">// SECTIONS</div>
+        <a href="#identity"  class="footer-link">(01) Identity</a>
+        <a href="#palette"   class="footer-link">(02) Palette</a>
+        <a href="#type"      class="footer-link">(03) Typography</a>
+        <a href="#components" class="footer-link">(04) Components</a>
+        <a href="#motion"    class="footer-link">(05) Motion</a>
+        <a href="#voice"     class="footer-link">(06) Voice</a>
+        <a href="#applications" class="footer-link">(07) Applications</a>
+      </div>
+      <div class="footer-contract">
+        <div class="footer-col-h">// REPO · OPEN</div>
+        <code class="footer-ca">github.com/π/brand · pending</code>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <span>© π · BRAND_BOOK v0.1.0</span>
+      <span class="footer-sep">·</span>
+      <span>OPEN_SOURCE_BRAND_KIT</span>
+      <span class="footer-sep">·</span>
+      <span>FAIR_LAUNCH · NO_TEAM_ALLOC</span>
+    </div>
+  </footer>
+
+  <!-- scroll-to-top button -->
+  <button id="scroll-top" class="scroll-top" type="button" aria-label="back to top">
+    <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <path d="M8 13 V3 M3 8 L8 3 L13 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <script src="script.js"></script>
+  <script src="brandbook.js"></script>
+</body>
+</html>

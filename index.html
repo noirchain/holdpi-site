@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>π - Passive Income on BNB Chain</title>
+  <meta name="description" content="Pi (π) - passive income through time-weighted redistribution. Purchase-specific tax decay and funded BNB rewards. Early sellers pay more, long-term holders pay less." />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+  <link rel="stylesheet" href="fonts.css" />
+  <!-- access gate · loaded first so the blank-out rule applies at first paint -->
+  <link rel="stylesheet" href="gate.css" />
+  <script src="gate.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="bnb.css" />
+</head>
+<body>
+
+  <!-- scroll progress bar (very top of viewport) -->
+  <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- TV power-on overlay -->
+  <div id="tv-on" class="tv-on" aria-hidden="true">
+    <div class="tv-bg"></div>
+    <div class="tv-line"></div>
+  </div>
+
+  <!-- lock-on brackets (snap around nearby interactive elements) -->
+  <div id="lockon" class="lockon" aria-hidden="true">
+    <span class="lo-tl"></span>
+    <span class="lo-tr"></span>
+    <span class="lo-bl"></span>
+    <span class="lo-br"></span>
+  </div>
+
+  <!-- custom crosshair cursor - lime + with 1px black outline -->
+  <div class="cursor" aria-hidden="true">
+    <svg viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <!-- black outline (slightly thicker, drawn first) -->
+      <line x1="0"  y1="13" x2="26" y2="13" stroke="#0e1014" stroke-width="5" stroke-linecap="round"/>
+      <line x1="13" y1="0"  x2="13" y2="26" stroke="#0e1014" stroke-width="5" stroke-linecap="round"/>
+      <!-- lime core (thinner, drawn on top) -->
+      <line x1="0"  y1="13" x2="26" y2="13" stroke="#c8ff3a" stroke-width="3"/>
+      <line x1="13" y1="0"  x2="13" y2="26" stroke="#c8ff3a" stroke-width="3"/>
+    </svg>
+  </div>
+
+  <!-- system status bar (the Aidan Cullen / mac menu vibe) -->
+  <div class="sysbar">
+    <div class="sysbar-inner">
+      <div class="sysbar-l">
+        <span class="sb-app">// SYS</span>
+        <span class="sb-sep">·</span>
+        <span class="sb-net">BNB · PRE-LAUNCH</span>
+        <span class="sb-sep">·</span>
+        <span class="sb-net">v0.1.0</span>
+      </div>
+      <div class="sysbar-r">
+        <span id="sb-clock">SAT 02 MAY · 09:14:00</span>
+        <span class="sb-sep">·</span>
+        <span class="led led-sm" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
+
+  <header class="top">
+    <div class="top-inner">
+      <div class="brand">
+        <span class="mark">π</span>
+        <span class="brand-name">PASSIVE_INCOME</span>
+        <span class="brand-tic">[ $π ]</span>
+      </div>
+      <nav class="nav">
+        <a href="#hero" class="nav-item is-active">(01) HERO</a>
+        <a href="#mechanics" class="nav-item">(02) MECHANICS</a>
+        <a href="#rewards" class="nav-item">(03) REWARDS</a>
+        <a href="#roadmap" class="nav-item">(05) ROADMAP</a>
+        <a href="/docs" class="nav-item">(08) DOCS</a>
+      </nav>
+      <a href="#buy" class="cta-mini">GET $π →</a>
+    </div>
+  </header>
+
+
+  <!-- sticky countdown strip - always visible under the topbar -->
+  <div class="cd-bar" aria-label="next distribution countdown">
+    <div class="container cd-bar-inner">
+      <span class="cd-bar-label">// TARGET · SETTLEMENT_WINDOW</span>
+      <span class="cd-bar-time" id="cd-timer">04:23:11</span>
+      <span class="cd-bar-status">
+        <span class="led led-sm"></span>
+        15M TARGET · AFTER LAUNCH
+      </span>
+    </div>
+  </div>
+
+
+  <main id="hero" class="hero">
+    <div class="hero-grid">
+
+      <div class="hero-left">
+        <div class="hero-num">(01) - HERO</div>
+
+        <h1 class="hero-title">
+          PATIENCE GETS <span class="hl hl-lime">PAID</span><br/>
+          PANIC GETS <span class="hl hl-dark">TAXED</span>
+        </h1>
+
+        <p class="hero-sub">
+          $π rewards patience on BNB Chain. Every purchase starts its own clock.
+          Early exits pay more. Longer-held PI receives a larger share of funded BNB rewards.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#buy" class="btn btn-pri">GET $π →</a>
+          <a href="/docs" class="btn">READ THE SPEC</a>
+        </div>
+
+        <div class="contract glow-frame">
+          <span class="glow-ring glow-cw" aria-hidden="true"></span>
+          <span class="glow-ring glow-ccw" aria-hidden="true"></span>
+          <div class="contract-label">CONTRACT_ADDRESS · BNB</div>
+          <div class="contract-row">
+            <code>NOT_DEPLOYED</code>
+            <button class="copy-btn" disabled aria-label="Contract not deployed">COPY</button>
+          </div>
+          <div class="contract-note">// source available · official address posted after deployment</div>
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="pi-display">
+          <div class="pi-display-top">
+            <span>// $π</span>
+            <span class="pi-display-status"><span class="led led-sm"></span> BNB</span>
+          </div>
+          <div class="pi-glyph-wrap">
+            <span class="pi-glyph">π</span>
+          </div>
+          <div class="pi-display-bottom">
+            <span>v0.1.0</span>
+            <span>TIME-WEIGHTED REDISTRIBUTION</span>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+
+  <div class="sec-div">// END_OF_(01) · NEXT_UP HOW_IT_WORKS</div>
+
+
+  <!-- ===========================================================
+       HOW_IT_WORKS - plain-language explainer, before the deep dive
+       =========================================================== -->
+  <section id="how" class="section how-section">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-num">// HOW_IT_WORKS</div>
+        <h2 class="section-title">
+          SIMPLE <span class="hl hl-lime">AS THIS</span>.
+        </h2>
+        <p class="section-sub">// the whole system in three steps · before the technical deep dive.</p>
+      </div>
+
+      <div class="how-flow">
+        <article class="how-step">
+          <div class="how-step-num">[ 01 ]</div>
+          <div class="how-step-h">A TRADE HAPPENS</div>
+          <p class="how-step-p">Buy tax is <strong>5%</strong>. Sell tax starts at <strong>10%</strong> for every purchase and decreases toward <strong>1%</strong> over a month.</p>
+        </article>
+
+        <span class="how-arrow" aria-hidden="true">→</span>
+
+        <article class="how-step">
+          <div class="how-step-num">[ 02 ]</div>
+          <div class="how-step-h">TAX BUILDS A POOL</div>
+          <p class="how-step-p"><strong>70%</strong> of collected tax funds BNB rewards. <strong>15%</strong> buys and burns PI, <strong>10%</strong> funds liquidity and <strong>5%</strong> covers operations.</p>
+        </article>
+
+        <span class="how-arrow" aria-hidden="true">→</span>
+
+        <article class="how-step">
+          <div class="how-step-num">[ 03 ]</div>
+          <div class="how-step-h">HOLDERS GET PAID</div>
+          <p class="how-step-p">Funded rounds target <strong>15 minutes</strong>. Eligible holders earn by <strong>balance × holding weight</strong>. Claim accrued BNB when you choose.</p>
+        </article>
+      </div>
+
+      <div class="how-twist">
+        <div class="how-twist-tag">[ THE_TWIST ]</div>
+        <h3 class="how-twist-h">
+          The longer you hold, the <span class="hl hl-lime">bigger</span> your slice.
+        </h3>
+        <div class="how-twist-mults">
+          <div class="how-mult"><span class="how-mult-time">0d</span><span class="how-mult-x">×0</span></div>
+          <div class="how-mult"><span class="how-mult-time">1d</span><span class="how-mult-x">×1</span></div>
+          <div class="how-mult"><span class="how-mult-time">7d</span><span class="how-mult-x">×1.5</span></div>
+          <div class="how-mult how-mult-best"><span class="how-mult-time">30d+</span><span class="how-mult-x">×2</span></div>
+        </div>
+        <p class="how-twist-p">// complete holding days: 1x at day 1 · 1.5x at day 7 · 2x at day 30</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===========================================================
+       HERO STATS STRIP - horizontal data band
+       =========================================================== -->
+  <section class="stats-strip" aria-label="Token parameters and launch status">
+    <div class="container">
+      <div class="strip-grid">
+        <div class="strip-cell">
+          <span class="cell-label">BUY_TAX</span>
+          <span class="cell-value">5%</span>
+        </div>
+        <div class="strip-cell">
+          <span class="cell-label">SELL_TAX</span>
+          <span class="cell-value">1-10%</span>
+        </div>
+        <div class="strip-cell">
+          <span class="cell-label">MAX_SUPPLY</span>
+          <span class="cell-value">1,000,000,000</span>
+        </div>
+        <div class="strip-cell">
+          <span class="cell-label">HOLDERS</span>
+          <span class="cell-value" id="strip-holders">PENDING</span>
+        </div>
+        <div class="strip-cell">
+          <span class="cell-label">VOL_24H</span>
+          <span class="cell-value" id="strip-vol">PENDING</span>
+        </div>
+        <div class="strip-cell">
+          <span class="cell-label">TAX_POOL</span>
+          <span class="cell-value" id="strip-pool">0 BNB</span>
+        </div>
+        <div class="strip-cell">
+          <span class="cell-label">ROUND_TARGET</span>
+          <span class="cell-value" id="strip-next-drop">-:-:-</span>
+        </div>
+        <div class="strip-cell">
+          <span class="cell-label">STATUS</span>
+          <span class="cell-value cell-status">
+            <span class="led led-sm"></span>
+            <span class="hl hl-lime">PRE-LAUNCH</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="sec-div">// PRE_LAUNCH · NEXT_UP (02) MECHANICS</div>
+
+
+  <!-- ===========================================================
+       (02) MECHANICS
+       =========================================================== -->
+  <section id="mechanics" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-num">(02) - MECHANICS</div>
+        <h2 class="section-title">
+          FOUR <span class="hl hl-lime">INTERLOCKING</span> SYSTEMS
+        </h2>
+        <p class="section-sub">// each one feeds the next.</p>
+      </div>
+
+      <div class="grid-4">
+
+        <article class="mech-card">
+          <div class="mech-id">(02.1)</div>
+          <h3 class="mech-h">TRANSACTION_TAX</h3>
+          <p class="mech-p"><strong>5% on buys.</strong> <strong>10% to 1% on exits.</strong> Collected proceeds split 70% holders, 15% buybacks/burns, 10% liquidity and 5% operations.</p>
+
+          <figure class="mech-graph">
+            <figcaption class="mech-cap">
+              <span>// TAX_FLOW_GAUGE</span>
+            </figcaption>
+            <svg viewBox="0 0 360 240" xmlns="http://www.w3.org/2000/svg" class="g-svg">
+              <!-- intake pipe -->
+              <text x="180" y="14" class="g-lbl g-c">// TX_INTAKE</text>
+              <rect x="120" y="22" width="120" height="32" class="g-fill-inv g-stroke pulse-slow" rx="2"/>
+              <text x="180" y="44" class="g-num g-c g-on-inv" style="font-size:14px;">5% / 10→1%</text>
+
+              <!-- vertical drop -->
+              <line x1="180" y1="54" x2="180" y2="68" class="g-axis" stroke-width="2"/>
+              <polygon points="174,66 186,66 180,76" class="g-fill-inv"/>
+
+              <!-- Y-fork pipe -->
+              <line x1="180" y1="78" x2="80" y2="106" class="g-axis" stroke-width="2"/>
+              <line x1="180" y1="78" x2="280" y2="106" class="g-axis" stroke-width="2"/>
+              <polygon points="74,103 86,103 80,114" class="g-fill-lime"/>
+              <polygon points="274,103 286,103 280,114" class="g-fill-inv"/>
+
+              <!-- left tank - HOLDERS 70% -->
+              <rect x="20" y="116" width="120" height="92" class="g-stroke" fill="none" stroke-width="2"/>
+              <rect x="22" y="144" width="116" height="62" class="g-fill-lime pulse-slow"/>
+              <text x="80" y="178" class="g-num g-c anim-fade stagger-2" style="font-size:30px;">70%</text>
+              <text x="80" y="226" class="g-lbl g-c">→ HOLDERS</text>
+
+              <!-- right tank - LIQUIDITY 15% -->
+              <rect x="220" y="116" width="120" height="92" class="g-stroke" fill="none" stroke-width="2"/>
+              <rect x="222" y="179" width="116" height="27" class="g-fill-inv pulse-slow stagger-2"/>
+              <text x="280" y="178" class="g-num g-c anim-fade stagger-3" style="font-size:30px;">30%</text>
+              <text x="280" y="226" class="g-lbl g-c">→ 15 / 10 / 5</text>
+
+              <!-- tank measurement ticks -->
+              <g class="g-grid">
+                <line x1="20"  y1="135" x2="26"  y2="135"/>
+                <line x1="20"  y1="160" x2="26"  y2="135" stroke="none"/>
+                <line x1="20"  y1="160" x2="26"  y2="160"/>
+                <line x1="20"  y1="185" x2="26"  y2="185"/>
+                <line x1="220" y1="135" x2="226" y2="135"/>
+                <line x1="220" y1="160" x2="226" y2="160"/>
+                <line x1="220" y1="185" x2="226" y2="185"/>
+              </g>
+            </svg>
+          </figure>
+        </article>
+
+        <article class="mech-card">
+          <div class="mech-id">(02.2)</div>
+          <h3 class="mech-h">REDISTRIBUTION</h3>
+          <p class="mech-p">BNB rewards divide a finite pot by <strong>eligible balance × holding weight</strong>. Top-ups start fresh without resetting older PI. Maximum weight: ×2.</p>
+
+          <figure class="mech-graph">
+            <figcaption class="mech-cap">
+              <span>// MULTIPLIER_DIAL</span>
+            </figcaption>
+            <svg viewBox="0 0 360 240" xmlns="http://www.w3.org/2000/svg" class="g-svg">
+              <!-- outer reference circle -->
+              <circle cx="180" cy="120" r="92" fill="none" class="g-grid"/>
+              <circle cx="180" cy="120" r="50" fill="none" class="g-grid"/>
+
+              <!-- 4 quadrant arcs - stroke width grows with multiplier weight -->
+              <!-- 0d ×1.0 - top-right quadrant -->
+              <path class="dial-arc dial-arc-1 anim-draw" d="M 180 38 A 82 82 0 0 1 262 120" stroke="var(--lime)" stroke-width="4" fill="none" stroke-linecap="round"/>
+              <!-- 1d ×1.5 - bottom-right quadrant -->
+              <path class="dial-arc dial-arc-2 anim-draw stagger-2" d="M 262 120 A 82 82 0 0 1 180 202" stroke="var(--lime)" stroke-width="8" fill="none" stroke-linecap="round"/>
+              <!-- 7d ×2.2 - bottom-left quadrant -->
+              <path class="dial-arc dial-arc-3 anim-draw stagger-3" d="M 180 202 A 82 82 0 0 1 98 120" stroke="var(--lime)" stroke-width="12" fill="none" stroke-linecap="round"/>
+              <!-- 30d+ ×2 - top-left quadrant -->
+              <path class="dial-arc dial-arc-4 anim-draw stagger-4" d="M 98 120 A 82 82 0 0 1 180 38" stroke="var(--lime)" stroke-width="16" fill="none" stroke-linecap="round"/>
+
+              <!-- center label -->
+              <text x="180" y="116" class="g-num g-c anim-fade stagger-3" style="font-size:34px; font-weight:700;">×2</text>
+              <text x="180" y="134" class="g-lbl g-c anim-fade stagger-3">MAX_MULT</text>
+
+              <!-- tier labels around the dial -->
+              <text x="180" y="26"  class="g-lbl g-c">0d · ×0</text>
+              <text x="304" y="124" class="g-lbl">1d · ×1</text>
+              <text x="180" y="226" class="g-lbl g-c">7d · ×1.5</text>
+              <text x="56"  y="124" class="g-lbl">30d+ · ×2</text>
+            </svg>
+          </figure>
+        </article>
+
+        <article class="mech-card">
+          <div class="mech-id">(02.3)</div>
+          <h3 class="mech-h">SELL_TAX_DECAY</h3>
+          <p class="mech-p">Every purchase begins at <strong>10%</strong>, whatever the launch date. Daily reductions pass <strong>8%, 6%, 4%, 2%</strong> and reach <strong>1%</strong> after 30 complete holding days.</p>
+
+          <figure class="mech-graph">
+            <figcaption class="mech-cap">
+              <span>// DECAY_OSCILLOSCOPE</span>
+            </figcaption>
+            <svg viewBox="0 0 360 240" xmlns="http://www.w3.org/2000/svg" class="g-svg">
+<text x="22" y="38.00" class="g-num g-r">10%</text><line x1="34" y1="34.00" x2="346" y2="34.00" class="g-grid"/>
+<text x="22" y="91.67" class="g-num g-r">7%</text><line x1="34" y1="87.67" x2="346" y2="87.67" class="g-grid"/>
+<text x="22" y="145.33" class="g-num g-r">4%</text><line x1="34" y1="141.33" x2="346" y2="141.33" class="g-grid"/>
+<text x="22" y="199.00" class="g-num g-r">1%</text><line x1="34" y1="195.00" x2="346" y2="195.00" class="g-grid"/>
+<line x1="34" y1="30" x2="34" y2="200" class="g-axis"/><line x1="34" y1="200" x2="346" y2="200" class="g-axis"/>
+<path class="g-area anim-fade stagger-3" d="M 50 34.00 H 59 V 69.78 H 68 V 87.67 H 77 V 105.56 H 86 V 114.50 H 95 V 123.44 H 104 V 132.39 H 113 V 141.33 H 122 V 146.34 H 131 V 151.53 H 140 V 156.54 H 149 V 161.73 H 158 V 166.74 H 167 V 171.92 H 176 V 177.11 H 185 V 178.18 H 194 V 179.26 H 203 V 180.33 H 212 V 181.58 H 221 V 182.66 H 230 V 183.73 H 239 V 184.80 H 248 V 186.06 H 257 V 187.13 H 266 V 188.20 H 275 V 189.28 H 284 V 190.53 H 293 V 191.60 H 302 V 192.67 H 311 V 193.75 H 320 V 195.00 L 320 200 L 50 200 Z"/><path class="g-curve anim-draw" d="M 50 34.00 H 59 V 69.78 H 68 V 87.67 H 77 V 105.56 H 86 V 114.50 H 95 V 123.44 H 104 V 132.39 H 113 V 141.33 H 122 V 146.34 H 131 V 151.53 H 140 V 156.54 H 149 V 161.73 H 158 V 166.74 H 167 V 171.92 H 176 V 177.11 H 185 V 178.18 H 194 V 179.26 H 203 V 180.33 H 212 V 181.58 H 221 V 182.66 H 230 V 183.73 H 239 V 184.80 H 248 V 186.06 H 257 V 187.13 H 266 V 188.20 H 275 V 189.28 H 284 V 190.53 H 293 V 191.60 H 302 V 192.67 H 311 V 193.75 H 320 V 195.00"/>
+<circle cx="50" cy="34.00" r="3.5" class="g-dot pulse-dot anim-fade stagger-2"/><text x="50" y="22.00" class="g-num g-c anim-fade stagger-2" style="font-size:13px">10%</text><text x="50" y="222" class="g-lbl g-c">0d</text>
+<circle cx="113" cy="141.33" r="3.5" class="g-dot pulse-dot anim-fade stagger-2"/><text x="113" y="129.33" class="g-num g-c anim-fade stagger-2" style="font-size:13px">4%</text><text x="113" y="222" class="g-lbl g-c">7d</text>
+<circle cx="176" cy="177.11" r="3.5" class="g-dot pulse-dot anim-fade stagger-2"/><text x="176" y="165.11" class="g-num g-c anim-fade stagger-2" style="font-size:13px">2%</text><text x="176" y="222" class="g-lbl g-c">14d</text>
+<circle cx="320" cy="195.00" r="3.5" class="g-dot pulse-dot anim-fade stagger-2"/><text x="320" y="183.00" class="g-num g-c anim-fade stagger-2" style="font-size:13px">1%</text><text x="320" y="222" class="g-lbl g-c">30d</text>
+            </svg>
+          </figure>
+        </article>
+
+        <article class="mech-card">
+          <div class="mech-id">(02.4)</div>
+          <h3 class="mech-h">MARKET_SUPPORT</h3>
+          <p class="mech-p"><strong>15%</strong> buys and burns PI. <strong>10%</strong> adds permanently locked liquidity. These budgets accumulate during bonding and execute after graduation.</p>
+
+          <figure class="mech-graph">
+            <figcaption class="mech-cap">
+              <span>// MARKET_SUPPORT · BUDGETED</span>
+            </figcaption>
+            <svg viewBox="0 0 360 240" xmlns="http://www.w3.org/2000/svg" class="g-svg">
+              <!-- top label -->
+              <text x="180" y="14" class="g-lbl g-c anim-fade stagger-3">// PRICE</text>
+
+              <!-- center price line -->
+              <line x1="180" y1="22" x2="180" y2="208" class="g-mid anim-fade stagger-3"/>
+
+              <!-- buy side (left) - 8 bars getting taller toward center, lime -->
+              <g>
+                <rect x="80"  y="172" width="10" height="36"  class="g-fill-lime g-stroke anim-grow-h stagger-4"/>
+                <rect x="92"  y="160" width="10" height="48"  class="g-fill-lime g-stroke anim-grow-h stagger-4"/>
+                <rect x="104" y="146" width="10" height="62"  class="g-fill-lime g-stroke anim-grow-h stagger-3"/>
+                <rect x="116" y="130" width="10" height="78"  class="g-fill-lime g-stroke anim-grow-h stagger-3"/>
+                <rect x="128" y="112" width="10" height="96"  class="g-fill-lime g-stroke anim-grow-h stagger-2"/>
+                <rect x="140" y="92"  width="10" height="116" class="g-fill-lime g-stroke anim-grow-h stagger-2"/>
+                <rect x="152" y="72"  width="10" height="136" class="g-fill-lime g-stroke anim-grow-h"/>
+                <rect x="164" y="56"  width="10" height="152" class="g-fill-lime g-stroke anim-grow-h"/>
+              </g>
+
+              <!-- sell side (right) - mirror, dark -->
+              <g>
+                <rect x="186" y="56"  width="10" height="152" class="g-fill-inv g-stroke anim-grow-h"/>
+                <rect x="198" y="72"  width="10" height="136" class="g-fill-inv g-stroke anim-grow-h"/>
+                <rect x="210" y="92"  width="10" height="116" class="g-fill-inv g-stroke anim-grow-h stagger-2"/>
+                <rect x="222" y="112" width="10" height="96"  class="g-fill-inv g-stroke anim-grow-h stagger-2"/>
+                <rect x="234" y="130" width="10" height="78"  class="g-fill-inv g-stroke anim-grow-h stagger-3"/>
+                <rect x="246" y="146" width="10" height="62"  class="g-fill-inv g-stroke anim-grow-h stagger-3"/>
+                <rect x="258" y="160" width="10" height="48"  class="g-fill-inv g-stroke anim-grow-h stagger-4"/>
+                <rect x="270" y="172" width="10" height="36"  class="g-fill-inv g-stroke anim-grow-h stagger-4"/>
+              </g>
+
+              <!-- baseline -->
+              <line x1="34" y1="208" x2="326" y2="208" class="g-axis"/>
+
+              <!-- side labels -->
+              <text x="34"  y="226" class="g-lbl">−2%  ·  BIDS</text>
+              <text x="326" y="226" class="g-lbl g-r">ASKS  ·  +2%</text>
+            </svg>
+          </figure>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <div class="sec-div">// END_OF_(02) · NEXT_UP (03) REWARDS</div>
+
+
+  <!-- ===========================================================
+       (03) REWARDS - countdown + personal yield calculator
+       =========================================================== -->
+  <section id="rewards" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-num">(03) - REWARDS</div>
+        <h2 class="section-title">
+          MODEL <span class="hl hl-lime">YOUR</span> SHARE
+        </h2>
+        <p class="section-sub">// finite BNB pool × normalized weight. change the assumptions, see the math.</p>
+      </div>
+
+      <!-- CALCULATOR -->
+      <div class="calc-grid">
+
+        <article class="calc-card">
+          <header class="calc-bar">
+            <span>(03.1) // INPUT</span>
+            <span class="calc-bar-r"><span class="led led-sm"></span> READY</span>
+          </header>
+          <div class="calc-body">
+            <label class="calc-row">
+              <span class="calc-lbl">HOLDINGS</span>
+              <span class="calc-input-wrap">
+                <input type="number" id="calc-holdings" value="1000000" min="0" step="100000"/>
+                <span class="calc-unit">π</span>
+              </span>
+            </label>
+
+            <div class="calc-row">
+              <span class="calc-lbl">HOLD_TIME</span>
+              <div class="calc-pills" id="calc-hold">
+                <button type="button" data-days="0"  data-mult="0" data-time="0d" class="is-on">0d</button>
+                <button type="button" data-days="1"  data-mult="1" data-time="1d">1d</button>
+                <button type="button" data-days="3"  data-mult="1" data-time="3d">3d</button>
+                <button type="button" data-days="7"  data-mult="1.5" data-time="7d">7d</button>
+                <button type="button" data-days="30" data-mult="2" data-time="30d+">30d+</button>
+              </div>
+            </div>
+
+            <label class="calc-row">
+              <span class="calc-lbl">DAILY_VOL</span>
+              <span class="calc-input-wrap">
+                <span class="calc-unit calc-unit-l">BNB</span>
+                <input type="number" id="calc-vol" value="100" min="0" step="10"/>
+              </span>
+            </label>
+
+            <label class="calc-row"><span class="calc-lbl">BUY_VOLUME</span><span class="calc-input-wrap"><input aria-label="BUY_VOLUME" type="number" id="calc-buys" value="50" min="0" max="100" step="5"/><span class="calc-unit">%</span></span></label>
+<label class="calc-row"><span class="calc-lbl">AVG_SELL_TAX</span><span class="calc-input-wrap"><input aria-label="AVG_SELL_TAX" type="number" id="calc-average-sell" value="4" min="1" max="10" step="0.1"/><span class="calc-unit">%</span></span></label>
+<label class="calc-row"><span class="calc-lbl">OTHER_WEIGHT</span><span class="calc-input-wrap"><input aria-label="OTHER_WEIGHT" type="number" id="calc-other-weight" value="500000000" min="0" step="1000000"/><span class="calc-unit">PI×w</span></span></label>
+<label class="calc-row"><span class="calc-lbl">CONVERSION_COST</span><span class="calc-input-wrap"><input aria-label="CONVERSION_COST" type="number" id="calc-conversion" value="0.5" min="0" max="100" step="0.1"/><span class="calc-unit">%</span></span></label>
+<div class="calc-meta">// BNB scenarios, not a live yield quote. OTHER_WEIGHT excludes your PI. Days are completed cohort days; thresholds can take less than one extra day. Low volume may defer a round.</div>
+
+            <div class="calc-row calc-lookup">
+              <span class="calc-lbl">WALLET</span>
+              <span class="calc-input-wrap">
+                <input type="text" id="calc-wallet" placeholder="Available after deployment" disabled autocomplete="off" spellcheck="false"/>
+                <button type="button" id="calc-lookup" class="lookup-btn" disabled>[ PENDING ]</button>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="calc-card">
+          <header class="calc-bar">
+            <span>(03.2) // BNB_REWARD_SHARE</span>
+            <span class="calc-bar-r">
+              <span class="cycle-toggle" id="calc-cycle" role="group" aria-label="payout cycle">
+                <button type="button" data-cycle="15m">15M</button>
+                <button type="button" data-cycle="24h" class="is-on">24H</button>
+              </span>
+            </span>
+          </header>
+          <div class="calc-body calc-readout">
+            <div class="cv-row"><span>TIME_HELD</span><span class="cv" id="out-time">0d</span></div>
+            <div class="cv-row"><span>TIME_MULT</span><span class="cv" id="out-mult">×0</span></div>
+            <div class="cv-row"><span>SELL_TAX_NOW</span><span class="cv" id="out-selltax">10.00%</span></div>
+            <div class="cv-row"><span>ELIGIBLE_SHARE</span><span class="cv" id="out-share">0.1000%</span></div>
+            <div class="cv-row"><span id="out-pool-label">POOL / DAY</span><span class="cv" id="out-pool">$35,000.00</span></div>
+            <div class="cv-row big">
+              <span id="out-pay-label">YOUR_PAYOUT / DAY</span>
+              <span class="cv-big" id="out-pay">$35</span>
+            </div>
+            <div class="cv-row"><span>BUYBACK / DAY</span><span class="cv" id="out-weekly">$245</span></div>
+            <div class="cv-row"><span>LIQUIDITY / DAY</span><span class="cv" id="out-monthly">$1,050</span></div>
+            <div class="cv-row"><span>OPERATIONS / DAY</span><span class="cv" id="out-year">~$12,775</span></div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <div class="sec-div">// END_OF_(03) · NEXT_UP (04) HOW_TO_BUY</div>
+
+
+  <!-- ===========================================================
+       (04) HOW_TO_BUY - 3-step onboarding
+       =========================================================== -->
+  <section id="buy" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-num">(04) - HOW_TO_BUY</div>
+        <h2 class="section-title">
+          THREE <span class="hl hl-lime">STEPS</span> TO PARTICIPATE
+        </h2>
+        <p class="section-sub">// prepare for launch. trading links activate after deployment.</p>
+      </div>
+
+      <div class="grid-3">
+        <article class="step-card">
+          <div class="step-num">[ 01 ]</div>
+          <h3 class="step-h">GET A WALLET</h3>
+          <p class="step-p">Use a wallet that supports BNB Smart Chain. Select the BNB network and keep enough BNB for transaction fees.</p>
+          <a href="https://trustwallet.com" class="step-link" target="_blank" rel="noopener">→ trustwallet.com</a>
+        </article>
+
+        <article class="step-card">
+          <div class="step-num">[ 02 ]</div>
+          <h3 class="step-h">FUND IT WITH BNB</h3>
+          <p class="step-p">Send BNB to your wallet on BNB Smart Chain. Check the network and receiving address before transferring.</p>
+          <span class="step-link">→ any major CEX</span>
+        </article>
+
+        <article class="step-card">
+          <div class="step-num">[ 03 ]</div>
+          <h3 class="step-h">SWAP FOR $π</h3>
+          <p class="step-p">At launch, use the verified Four.meme page. After graduation, use the official PancakeSwap pool. Check the displayed buy and sell fees.</p>
+          <a href="/docs#launch" class="step-link">→ launch specification</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="sec-div">// END_OF_(04) · NEXT_UP (05) ROADMAP</div>
+
+
+  <!-- ===========================================================
+       (05) ROADMAP - vertical timeline
+       =========================================================== -->
+  <section id="roadmap" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-num">(05) - ROADMAP</div>
+        <h2 class="section-title">
+          BUILD <span class="hl hl-lime">PHASES</span>
+        </h2>
+        <p class="section-sub">// what's done. what's next.</p>
+      </div>
+
+      <ol class="roadmap-list">
+        <li class="rm-item rm-done">
+          <div class="rm-marker"><span class="led"></span></div>
+          <div class="rm-line"></div>
+          <div class="rm-content">
+            <div class="rm-tag">[ DONE ]</div>
+            <h3 class="rm-h">CONTRACT_DRAFT</h3>
+            <p class="rm-p">Solidity review package: acquisition-age ledger, taxes, BNB rewards, treasury and OpenFour modules. Source and local test results are in the documentation.</p>
+          </div>
+        </li>
+
+        <li class="rm-item rm-active">
+          <div class="rm-marker"><span class="led"></span></div>
+          <div class="rm-line"></div>
+          <div class="rm-content">
+            <div class="rm-tag">[ REVIEW_REQUIRED ]</div>
+            <h3 class="rm-h">PUBLIC_AUDIT</h3>
+            <p class="rm-p">Independent security audit and OpenFour integration review are required before deployment. Local tests are available; no external audit is claimed.</p>
+          </div>
+        </li>
+
+        <li class="rm-item">
+          <div class="rm-marker"><span class="led"></span></div>
+          <div class="rm-line"></div>
+          <div class="rm-content">
+            <div class="rm-tag">[ NEXT ]</div>
+            <h3 class="rm-h">FAIR_LAUNCH</h3>
+            <p class="rm-p">Proposed BNB launch through a custom OpenFour preset. Supply enters sale and liquidity inventory. Admission and final launch parameters remain to be approved.</p>
+          </div>
+        </li>
+
+        <li class="rm-item">
+          <div class="rm-marker"><span class="led"></span></div>
+          <div class="rm-line"></div>
+          <div class="rm-content">
+            <div class="rm-tag">[ AFTER_GRADUATION ]</div>
+            <h3 class="rm-h">DEX_LISTINGS</h3>
+            <p class="rm-p">PancakeSwap V2 graduation with LP sent to the burn address. Purchase ages and previously earned BNB survive migration.</p>
+          </div>
+        </li>
+
+        <li class="rm-item">
+          <div class="rm-marker"><span class="led"></span></div>
+          <div class="rm-content">
+            <div class="rm-tag">[ LATER ]</div>
+            <h3 class="rm-h">CEX_LISTINGS</h3>
+            <p class="rm-p">Additional venues only after compatibility review. Custodial and pooled balances cannot represent each underlying user on-chain.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+
+  <div class="sec-div">// END_OF_(05) · NEXT_UP (06) FAQ</div>
+
+
+  <!-- ===========================================================
+       (06) FAQ - accordion Q&A
+       =========================================================== -->
+  <section id="faq" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-num">(06) - FAQ</div>
+        <h2 class="section-title">
+          COMMON <span class="hl hl-lime">QUESTIONS</span>
+        </h2>
+        <p class="section-sub">// click to expand.</p>
+      </div>
+
+      <ul class="faq-list"><li class="faq-item"><details><summary><span class="faq-q">What is the contract address?</span><span class="faq-toggle" aria-hidden="true">+</span></summary><div class="faq-a">PI is not deployed. The verified BNB address and official trading links will be published here after review and deployment. The downloadable source is available now.</div></details></li>
+<li class="faq-item"><details><summary><span class="faq-q">How often are rewards allocated?</span><span class="faq-toggle" aria-hidden="true">+</span></summary><div class="faq-a">The target is one funded settlement every 15 minutes. A keeper submits the transaction when processing is economical; low activity may defer it. Eligible holders accrue a share of the actual BNB pool and claim when they choose. No fixed payout is promised.</div></details></li>
+<li class="faq-item"><details><summary><span class="faq-q">How are taxes split?</span><span class="faq-toggle" aria-hidden="true">+</span></summary><div class="faq-a">Buys pay 5%. Exits pay 10% down to 1%, based on the age of the PI sold. Of the project tax actually collected: 70% funds BNB rewards, 15% buys and burns PI, 10% funds liquidity and 5% covers operations. Platform and swap fees are separate.</div></details></li>
+<li class="faq-item"><details><summary><span class="faq-q">Does the launch date change my sell tax?</span><span class="faq-toggle" aria-hidden="true">+</span></summary><div class="faq-a">No. Every purchase starts at 10%, even months after launch. Checkpoints are 10%, 8%, 6%, 4%, 2% and 1% at completed holding days 0, 1, 3, 7, 14 and 30. Rates decrease daily. Conservative daily buckets can delay a checkpoint by less than one day.</div></details></li>
+<li class="faq-item"><details><summary><span class="faq-q">Does buying more reset my older PI?</span><span class="faq-toggle" aria-hidden="true">+</span></summary><div class="faq-a">No. A new purchase gets a new age bucket. Older PI keeps its age. Sales consume the newest PI first, so fresh funds cannot inherit the lower tax of an old wallet. Wallet transfers pay the applicable exit tax and start a fresh clock for the recipient.</div></details></li>
+<li class="faq-item"><details><summary><span class="faq-q">How does holding time affect rewards?</span><span class="faq-toggle" aria-hidden="true">+</span></summary><div class="faq-a">New PI qualifies after one complete holding day. Eligible weights are 1x before day 7, 1.5x from day 7 and 2x from day 30. Your weight is divided by all eligible weight. If everyone has 2x, nobody receives twice the pool.</div></details></li>
+<li class="faq-item"><details><summary><span class="faq-q">Is the contract audited?</span><span class="faq-toggle" aria-hidden="true">+</span></summary><div class="faq-a">No independent audit has been completed. The documentation contains review source, build instructions, executed local tests and the remaining integration checks. This site does not present local verification as external approval.</div></details></li>
+<li class="faq-item"><details><summary><span class="faq-q">What happens if trading volume stops?</span><span class="faq-toggle" aria-hidden="true">+</span></summary><div class="faq-a">No new fee receipts means no new reward income. Existing credited BNB remains claimable. Empty-eligibility rounds retain the full holder reserve for a later allocation.</div></details></li>
+<li class="faq-item"><details><summary><span class="faq-q">What is the supply and team allocation?</span><span class="faq-toggle" aria-hidden="true">+</span></summary><div class="faq-a">The reference configuration keeps the original one-billion PI supply. All initial inventory goes to the launch vault for sale and liquidity, with no team mint. Operations receives 5% of collected taxes. Final sale and liquidity quantities must be validated before launch.</div></details></li></ul>
+    </div>
+  </section>
+
+
+  <div class="sec-div">// END_OF_(06) · NEXT_UP (07) DISCLOSURE</div>
+
+
+  <!-- ===========================================================
+       (07) DISCLOSURE - IS / IS NOT cards + closing CTA
+       =========================================================== -->
+  <section id="disclosure" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-num">(07) - DISCLOSURE</div>
+        <h2 class="section-title">
+          WHAT $π <span class="hl hl-lime">IS</span><br/>
+          AND <span class="hl hl-dark">IS NOT</span>
+        </h2>
+        <p class="section-sub">// stripped of narrative.</p>
+      </div>
+
+      <div class="disc-grid">
+
+        <article class="disc-card disc-is">
+          <div class="disc-id">(07.1)</div>
+          <div class="disc-tag">[ IS ]</div>
+          <ul class="disc-list">
+            <li>A fee-funded BNB redistribution system with a 70/15/10/5 allocation.</li>
+            <li>A normalized holding weight: patience increases your share, capped at ×2.</li>
+            <li>A system that rewards holders from <em>other holders' trades</em>.</li>
+            <li>Sustainable only as long as trading activity continues.</li>
+          </ul>
+        </article>
+
+        <article class="disc-card disc-isnt">
+          <div class="disc-id">(07.2)</div>
+          <div class="disc-tag">[ IS NOT ]</div>
+          <ul class="disc-list">
+            <li>Guaranteed income or risk-free yield.</li>
+            <li>Backed by external cashflows or revenue.</li>
+            <li>Yield without participants - no volume = no pool.</li>
+            <li>Financial advice. Trade what you can afford to lose.</li>
+          </ul>
+        </article>
+
+      </div>
+
+      <!-- closing CTA band -->
+      <div class="closing">
+        <div class="closing-meta">// END_OF_FILE · STATUS_OK</div>
+        <h3 class="closing-h">
+          TIME IS <span class="hl hl-lime">THE EDGE</span>.
+        </h3>
+        <p class="closing-sub">// the longer you hold, the more the system works for you.</p>
+        <div class="closing-actions">
+          <a href="#buy" class="btn btn-pri">GET $π →</a>
+          <a href="#hero" class="btn">RETURN TO TOP ↑</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="sec-div">// END_OF_FILE · STATUS_OK</div>
+
+
+  <!-- ===========================================================
+       FOOTER
+       =========================================================== -->
+  <footer class="footer">
+    <div class="container footer-grid">
+
+      <div class="footer-brand">
+        <span class="footer-mark">π</span>
+        <div class="footer-brand-meta">
+          <div class="footer-brand-name">PASSIVE_INCOME</div>
+          <div class="footer-brand-tag">// time × share</div>
+          <div class="footer-chain">BNB · PRE-LAUNCH · v0.1.0</div>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-h">// LINKS</div>
+        <span class="footer-link">→ Twitter / X · pending</span>
+        <span class="footer-link">→ Telegram · pending</span>
+        <span class="footer-link">→ Discord · pending</span>
+        <a href="/docs#source" class="footer-link">→ Source code</a>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-h">// SECTIONS</div>
+        <a href="#hero"       class="footer-link">(01) Hero</a>
+        <a href="#mechanics"  class="footer-link">(02) Mechanics</a>
+        <a href="#rewards"    class="footer-link">(03) Rewards</a>
+        <a href="#buy"        class="footer-link">(04) How_to_buy</a>
+        <a href="#roadmap"    class="footer-link">(05) Roadmap</a>
+        <a href="#faq"        class="footer-link">(06) FAQ</a>
+        <a href="#disclosure" class="footer-link">(07) Disclosure</a>
+      </div>
+
+      <div class="footer-contract">
+        <div class="footer-col-h">// CONTRACT · BNB</div>
+        <code class="footer-ca">NOT_DEPLOYED</code>
+        <button class="copy-btn" disabled aria-label="Contract not deployed">COPY</button>
+      </div>
+
+    </div>
+
+    <div class="footer-bar">
+      <span>© π · ALL PARTICIPANTS</span>
+      <span class="footer-sep">·</span>
+      <span>BUILD 0.1.0</span>
+      <span class="footer-sep">·</span>
+      <a class='footer-bar-link' href='/brandbook'>[ BRAND_BOOK → ]</a> <a class="footer-bar-link" href="/docs">[ DOCUMENTATION → ]</a>
+      <span class="footer-sep">·</span>
+      <span>BNB · REVIEW_SOURCE</span>
+    </div>
+  </footer>
+
+
+  <!-- scroll-to-top button (appears after scrolling past hero) -->
+  <button id="scroll-top" class="scroll-top" type="button" aria-label="back to top">
+    <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <path d="M8 13 V3 M3 8 L8 3 L13 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+
+  <script src="economics.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

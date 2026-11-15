@@ -1,0 +1,399 @@
+{
+  "version": "0.2.0",
+  "status": "Review source; not independently audited or deployed",
+  "upstream_commit": "8ca5554df22ad511126d8547c212fa161ecf19ee",
+  "compiler": "0.8.24+commit.e11b9ed9.Emscripten.clang",
+  "compiler_settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "viaIR": true,
+    "evmVersion": "paris"
+  },
+  "files": [
+    {
+      "path": "contracts/src/PiToken.sol",
+      "url": "/review/source/contracts/src/PiToken.sol",
+      "sha256": "f03b2b732b08fed8cd01a1e6b69b6ee26ba305ddcd0ec238eabeede0bdbfce73",
+      "bytes": 5375,
+      "viewer": true
+    },
+    {
+      "path": "contracts/src/PiRewards.sol",
+      "url": "/review/source/contracts/src/PiRewards.sol",
+      "sha256": "3503d371fb847de8243634a00a798b860906a8de46cc86d4f80b3ce32b92914d",
+      "bytes": 10584,
+      "viewer": true
+    },
+    {
+      "path": "contracts/src/PiTreasury.sol",
+      "url": "/review/source/contracts/src/PiTreasury.sol",
+      "sha256": "1eeb88def76ba01637fd84b92b4680117443259137223edaa3b944292dbf344f",
+      "bytes": 13506,
+      "viewer": true
+    },
+    {
+      "path": "contracts/src/PiCurveModule.sol",
+      "url": "/review/source/contracts/src/PiCurveModule.sol",
+      "sha256": "0f904a7a0858531b1db69511069582a88a1330b6132e13c92409deb8cc81e8df",
+      "bytes": 5262,
+      "viewer": true
+    },
+    {
+      "path": "contracts/src/PiMigrateModule.sol",
+      "url": "/review/source/contracts/src/PiMigrateModule.sol",
+      "sha256": "d9b0b401706b452db07781028ad7f2c6b4bef7eed4bcfa5aaedb0a445a2049f5",
+      "bytes": 5114,
+      "viewer": true
+    },
+    {
+      "path": "contracts/src/PiPresetValidator.sol",
+      "url": "/review/source/contracts/src/PiPresetValidator.sol",
+      "sha256": "cc91f509c0414b90ebf9e81b628fa36fbf8857193fee2ef93e658ea2f7471dec",
+      "bytes": 3587,
+      "viewer": true
+    },
+    {
+      "path": "contracts/src/PiRates.sol",
+      "url": "/review/source/contracts/src/PiRates.sol",
+      "sha256": "4e26bf482e0ceccc901a52282b5aee1b1693bc7dc545991f81c446f04558d914",
+      "bytes": 1159,
+      "viewer": true
+    },
+    {
+      "path": "contracts/src/PiTokenModule.sol",
+      "url": "/review/source/contracts/src/PiTokenModule.sol",
+      "sha256": "6b8a0ecdbf02df806e492daffc9706fb1f72d4799ff5fe68c5b0e6bc179e1a91",
+      "bytes": 2040,
+      "viewer": true
+    },
+    {
+      "path": "contracts/src/PiTradeModule.sol",
+      "url": "/review/source/contracts/src/PiTradeModule.sol",
+      "sha256": "293cc1ecbc05b1a3ed834a2ac8a20b51c626142bbc19cfa1bd7244a16ff7b1ca",
+      "bytes": 2555,
+      "viewer": true
+    },
+    {
+      "path": "contracts/src/PiVault.sol",
+      "url": "/review/source/contracts/src/PiVault.sol",
+      "sha256": "290328f5dd94500c83406db44088d76ae68615064c6e70005f6ca679df9d0fff",
+      "bytes": 264,
+      "viewer": true
+    },
+    {
+      "path": "contracts/src/test/CoreHarness.sol",
+      "url": "/review/source/contracts/src/test/CoreHarness.sol",
+      "sha256": "25058b044db066c270d61e701ac85129c97749307a6f54e7e1b6a5267ce026b6",
+      "bytes": 7746,
+      "viewer": true
+    },
+    {
+      "path": "contracts/vendor/openfour/interfaces/IOpenFourCurveModule.sol",
+      "url": "/review/source/contracts/vendor/openfour/interfaces/IOpenFourCurveModule.sol",
+      "sha256": "11b5b5256c19c69d03911103726fe8b827ca3d8df344761af740e6eb3cb9c9a5",
+      "bytes": 1798,
+      "viewer": true
+    },
+    {
+      "path": "contracts/vendor/openfour/interfaces/IOpenFourMigrateModule.sol",
+      "url": "/review/source/contracts/vendor/openfour/interfaces/IOpenFourMigrateModule.sol",
+      "sha256": "d9bacb1230ca95847e6961f0679555540d05881a5cabb92e1aa941f792fbff90",
+      "bytes": 1122,
+      "viewer": true
+    },
+    {
+      "path": "contracts/vendor/openfour/interfaces/IOpenFourModuleSchema.sol",
+      "url": "/review/source/contracts/vendor/openfour/interfaces/IOpenFourModuleSchema.sol",
+      "sha256": "73fc6d648407852fd262fb19c6dac2e5db8f144440c7ee01eb5c26a241a654a1",
+      "bytes": 1156,
+      "viewer": true
+    },
+    {
+      "path": "contracts/vendor/openfour/interfaces/IOpenFourPresetValidator.sol",
+      "url": "/review/source/contracts/vendor/openfour/interfaces/IOpenFourPresetValidator.sol",
+      "sha256": "ed698a103c10b3f0ea30cbce2a94a9e80db1cfcf716f68ac107d64ed6fafe1f1",
+      "bytes": 262,
+      "viewer": true
+    },
+    {
+      "path": "contracts/vendor/openfour/interfaces/IOpenFourToken.sol",
+      "url": "/review/source/contracts/vendor/openfour/interfaces/IOpenFourToken.sol",
+      "sha256": "b0493f078075dae1044a656e62b9445d5e3d9a4e69cf581194aa22c8caa12bc6",
+      "bytes": 2216,
+      "viewer": true
+    },
+    {
+      "path": "contracts/vendor/openfour/interfaces/IOpenFourTokenModule.sol",
+      "url": "/review/source/contracts/vendor/openfour/interfaces/IOpenFourTokenModule.sol",
+      "sha256": "15762d9ca5c951e774bd5410ab7c60ebb1654cdc7ce715cac7fd94e001d5af97",
+      "bytes": 1205,
+      "viewer": true
+    },
+    {
+      "path": "contracts/vendor/openfour/interfaces/IOpenFourTradeModule.sol",
+      "url": "/review/source/contracts/vendor/openfour/interfaces/IOpenFourTradeModule.sol",
+      "sha256": "ed1903d6d05e61901597627390d80b8364cd00549f0f4a2e171fefb436e74f46",
+      "bytes": 833,
+      "viewer": true
+    },
+    {
+      "path": "contracts/vendor/openfour/interfaces/IOpenFourVault.sol",
+      "url": "/review/source/contracts/vendor/openfour/interfaces/IOpenFourVault.sol",
+      "sha256": "716f789b0ed070721983f9d902062aba48f221ecfec7e051e7364b3d08176770",
+      "bytes": 2646,
+      "viewer": true
+    },
+    {
+      "path": "contracts/vendor/openfour/interfaces/ITagDescriptor.sol",
+      "url": "/review/source/contracts/vendor/openfour/interfaces/ITagDescriptor.sol",
+      "sha256": "9b5a2700e573d0d1f2d1f19daa83671eb56d28b4f32b217460399d839410bc3c",
+      "bytes": 580,
+      "viewer": true
+    },
+    {
+      "path": "contracts/vendor/openfour/interfaces/ITaxTokenBonding.sol",
+      "url": "/review/source/contracts/vendor/openfour/interfaces/ITaxTokenBonding.sol",
+      "sha256": "73561dd80b083b618a4281143264e3cffcdc93a60b3a002fc26ad00ab86efa6d",
+      "bytes": 1043,
+      "viewer": true
+    },
+    {
+      "path": "contracts/vendor/openfour/libraries/OpenFourTypes.sol",
+      "url": "/review/source/contracts/vendor/openfour/libraries/OpenFourTypes.sol",
+      "sha256": "7538b3a831893a06e5eee87af3dc4cf7d701d3c4bf3884356378cba368602dca",
+      "bytes": 9316,
+      "viewer": true
+    },
+    {
+      "path": "contracts/vendor/openfour/modules/vault/TaxBondingVault.sol",
+      "url": "/review/source/contracts/vendor/openfour/modules/vault/TaxBondingVault.sol",
+      "sha256": "222cb6e5ee4882fc52b27be1259df576dc13c155a7956fd021fc2ebda3043508",
+      "bytes": 7878,
+      "viewer": true
+    },
+    {
+      "path": "contracts/vendor/openfour/token/OpenFourToken.sol",
+      "url": "/review/source/contracts/vendor/openfour/token/OpenFourToken.sol",
+      "sha256": "66f6f0f576294926ec48e1a49da9b9a9145a42b8c9aba20ae6951c5d2eb29f5d",
+      "bytes": 5789,
+      "viewer": true
+    },
+    {
+      "path": "contracts/test/fixtures.cjs",
+      "url": "/review/source/contracts/test/fixtures.cjs",
+      "sha256": "39b88d73e8bd46516eb13d7f955437dd30e0132b319e10d46aaad088a1baa6be",
+      "bytes": 4770,
+      "viewer": true
+    },
+    {
+      "path": "contracts/test/pi.bnb.test.cjs",
+      "url": "/review/source/contracts/test/pi.bnb.test.cjs",
+      "sha256": "141dd933134a85d12244078e3927b2a2239d532ec32b1590213c10f62f61c2c4",
+      "bytes": 20256,
+      "viewer": true
+    },
+    {
+      "path": "contracts/hardhat.config.cjs",
+      "url": "/review/source/contracts/hardhat.config.cjs",
+      "sha256": "434e980cd7fb8935e2a030fdd0d5f1b6c364f8ff66d935b815bca26b6f0223c5",
+      "bytes": 1206,
+      "viewer": true
+    },
+    {
+      "path": "README.md",
+      "url": "/review/source/README.md",
+      "sha256": "0763472a1b0a089838fe14c8471bbe98e5d54d461e296388e1e3af97accb035d",
+      "bytes": 5515,
+      "viewer": true
+    },
+    {
+      "path": "docs/KEEPER.md",
+      "url": "/review/source/docs/KEEPER.md",
+      "sha256": "18bd6a643b82aab254aad64cd9be0b41cee303d47ac40fc03a4e8160d78729ca",
+      "bytes": 2172,
+      "viewer": true
+    },
+    {
+      "path": "docs/SECURITY-REVIEW.md",
+      "url": "/review/source/docs/SECURITY-REVIEW.md",
+      "sha256": "785e7f97b9ee910608e62d90fb0a277cac4948e69ecc67ed231e3f19f1b1ea26",
+      "bytes": 4569,
+      "viewer": true
+    },
+    {
+      "path": "outputs/contract-verification.json",
+      "url": "/review/contract-verification.json",
+      "sha256": "658447fb8698324f3a63003a6476cf2f6f48d768ee4fd8f12a00ea233a611ade",
+      "bytes": 3936,
+      "viewer": false
+    },
+    {
+      "path": "website/review/economic-spec.json",
+      "url": "/review/economic-spec.json",
+      "sha256": "c4322f171f533733311e78d174fa6aade6117ccb86f88ff91172148f3ab2fd3e",
+      "bytes": 7936,
+      "viewer": false
+    },
+    {
+      "path": "website/review/compiler-input.json",
+      "url": "/review/compiler-input.json",
+      "sha256": "22c6097ca5d6a78c647c0f670b03160fcb975a0b9aba82d2c94bc96704309bff",
+      "bytes": 165220,
+      "viewer": false
+    },
+    {
+      "path": "website/review/abi/PiCurveModule.json",
+      "url": "/review/abi/PiCurveModule.json",
+      "sha256": "c815a4a0380b597f183ef928cdc61538859fcd3ade26580d52d23a0d1c5e7908",
+      "bytes": 9328,
+      "viewer": false
+    },
+    {
+      "path": "website/review/abi/PiMigrateModule.json",
+      "url": "/review/abi/PiMigrateModule.json",
+      "sha256": "ff8dbeb8597c11d71765b29cb23c89c6c61919990b24e076e0dae24cc6e22e73",
+      "bytes": 5200,
+      "viewer": false
+    },
+    {
+      "path": "website/review/abi/PiPresetValidator.json",
+      "url": "/review/abi/PiPresetValidator.json",
+      "sha256": "ba33e40116bfecf47d1cde4f65cd9b38880c78da1a8460fc24b65b93a41ff2e1",
+      "bytes": 4231,
+      "viewer": false
+    },
+    {
+      "path": "website/review/abi/PiRates.json",
+      "url": "/review/abi/PiRates.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3,
+      "viewer": false
+    },
+    {
+      "path": "website/review/abi/PiRewards.json",
+      "url": "/review/abi/PiRewards.json",
+      "sha256": "27c78330a47200d1c773d361e9c8b99bb6c2735aed8c8ab92d4324c7e7537c34",
+      "bytes": 10010,
+      "viewer": false
+    },
+    {
+      "path": "website/review/abi/PiToken.json",
+      "url": "/review/abi/PiToken.json",
+      "sha256": "9698291c5b34e605fc85c255b17d0a059636e5d37f558e20fac26172aba0fef5",
+      "bytes": 16432,
+      "viewer": false
+    },
+    {
+      "path": "website/review/abi/PiTokenModule.json",
+      "url": "/review/abi/PiTokenModule.json",
+      "sha256": "63fe83c5d5b29da547948555a8843f72ebe395ab53eab2080cbfef8fda94121e",
+      "bytes": 3867,
+      "viewer": false
+    },
+    {
+      "path": "website/review/abi/PiTradeModule.json",
+      "url": "/review/abi/PiTradeModule.json",
+      "sha256": "e1c864b0a95789285ab56f9716cf907e319022d1e62d4dd25a93045212906068",
+      "bytes": 6620,
+      "viewer": false
+    },
+    {
+      "path": "website/review/abi/PiTreasury.json",
+      "url": "/review/abi/PiTreasury.json",
+      "sha256": "48fecbc6f3f44f7ca42d8e16f2b1655d59157004a9a65553194b2947da9c407a",
+      "bytes": 10775,
+      "viewer": false
+    },
+    {
+      "path": "website/review/abi/PiVault.json",
+      "url": "/review/abi/PiVault.json",
+      "sha256": "8d5d3909d301b93c4c86c606d441f11d49d53691b1322dbc1da76bacb43374e4",
+      "bytes": 11409,
+      "viewer": false
+    }
+  ],
+  "contracts": [
+    {
+      "contract": "PiCurveModule",
+      "source": "contracts/src/PiCurveModule.sol",
+      "source_sha256": "0f904a7a0858531b1db69511069582a88a1330b6132e13c92409deb8cc81e8df",
+      "abi_url": "/review/abi/PiCurveModule.json",
+      "runtime_bytes": 4675,
+      "creation_bytecode_sha256": "c84cbb20c07fb704f4e19e378939a088fd5e65b21033dce8a69583dda8c44cdf"
+    },
+    {
+      "contract": "PiMigrateModule",
+      "source": "contracts/src/PiMigrateModule.sol",
+      "source_sha256": "d9b0b401706b452db07781028ad7f2c6b4bef7eed4bcfa5aaedb0a445a2049f5",
+      "abi_url": "/review/abi/PiMigrateModule.json",
+      "runtime_bytes": 5816,
+      "creation_bytecode_sha256": "c82b186b32d2d8bd50706c896eb1d199246ca868575d2f2002feb0f1cc5815c7"
+    },
+    {
+      "contract": "PiPresetValidator",
+      "source": "contracts/src/PiPresetValidator.sol",
+      "source_sha256": "cc91f509c0414b90ebf9e81b628fa36fbf8857193fee2ef93e658ea2f7471dec",
+      "abi_url": "/review/abi/PiPresetValidator.json",
+      "runtime_bytes": 2596,
+      "creation_bytecode_sha256": "4524f96c3fbbd65443916783e6399de7025800f5286a0a8ddb5873a229f65bc8"
+    },
+    {
+      "contract": "PiRates",
+      "source": "contracts/src/PiRates.sol",
+      "source_sha256": "4e26bf482e0ceccc901a52282b5aee1b1693bc7dc545991f81c446f04558d914",
+      "abi_url": "/review/abi/PiRates.json",
+      "runtime_bytes": 58,
+      "creation_bytecode_sha256": "9795abf464a7fe81fc97701d45689357ebc660e20ca8d04982f61da83ab62899"
+    },
+    {
+      "contract": "PiRewards",
+      "source": "contracts/src/PiRewards.sol",
+      "source_sha256": "3503d371fb847de8243634a00a798b860906a8de46cc86d4f80b3ce32b92914d",
+      "abi_url": "/review/abi/PiRewards.json",
+      "runtime_bytes": 8256,
+      "creation_bytecode_sha256": "1a013f0c0bc8de199d8915c9cedf1569a93b16fb1642f666fc00e05b15ef56cd"
+    },
+    {
+      "contract": "PiToken",
+      "source": "contracts/src/PiToken.sol",
+      "source_sha256": "f03b2b732b08fed8cd01a1e6b69b6ee26ba305ddcd0ec238eabeede0bdbfce73",
+      "abi_url": "/review/abi/PiToken.json",
+      "runtime_bytes": 12001,
+      "creation_bytecode_sha256": "f7959c93779fd542f0bfcd57f4b9393efa14935dd802d29df4d54a0db38863dc"
+    },
+    {
+      "contract": "PiTokenModule",
+      "source": "contracts/src/PiTokenModule.sol",
+      "source_sha256": "6b8a0ecdbf02df806e492daffc9706fb1f72d4799ff5fe68c5b0e6bc179e1a91",
+      "abi_url": "/review/abi/PiTokenModule.json",
+      "runtime_bytes": 3091,
+      "creation_bytecode_sha256": "19e3929a8139ba6bf098dad017bd5c9d7f816b3b0a683346a8d6148ec6769ef1"
+    },
+    {
+      "contract": "PiTradeModule",
+      "source": "contracts/src/PiTradeModule.sol",
+      "source_sha256": "293cc1ecbc05b1a3ed834a2ac8a20b51c626142bbc19cfa1bd7244a16ff7b1ca",
+      "abi_url": "/review/abi/PiTradeModule.json",
+      "runtime_bytes": 3173,
+      "creation_bytecode_sha256": "1bc75eb9b3fd8db06dc7405355996e77e18f37ab75cbe77990fc7a516e1627b7"
+    },
+    {
+      "contract": "PiTreasury",
+      "source": "contracts/src/PiTreasury.sol",
+      "source_sha256": "1eeb88def76ba01637fd84b92b4680117443259137223edaa3b944292dbf344f",
+      "abi_url": "/review/abi/PiTreasury.json",
+      "runtime_bytes": 12073,
+      "creation_bytecode_sha256": "378e4fb63401b41e24c39a550b5200c3e94881a26d7e5315cd20d5ed6485c93c"
+    },
+    {
+      "contract": "PiVault",
+      "source": "contracts/src/PiVault.sol",
+      "source_sha256": "290328f5dd94500c83406db44088d76ae68615064c6e70005f6ca679df9d0fff",
+      "abi_url": "/review/abi/PiVault.json",
+      "runtime_bytes": 6402,
+      "creation_bytecode_sha256": "55248fa609dd08b5cb22aae6b48e7b4c18972fe2ebcfcfa4035a1fdd3d5598de"
+    }
+  ]
+}
