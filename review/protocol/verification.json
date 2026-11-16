@@ -1,0 +1,57 @@
+{
+  "checked_at": "2026-11-16T13:16:50.901355+00:00",
+  "scope": "Local BNB fork with actual WBNB and PancakeSwap V2. CoreHarness is a settlement adapter, not official OpenFour Core.",
+  "fork": {
+    "url": "https://bsc-dataseed.bnbchain.org",
+    "block": 133933969
+  },
+  "contract_tests": [
+    {
+      "title": "keeps implementation bytecode deployable and round-trips the official token tuple schema",
+      "status": "passed"
+    },
+    {
+      "title": "applies custom buy and per-purchase sell rates on launch day and day 20",
+      "status": "passed"
+    },
+    {
+      "title": "uses the exact daily sell and weight arrays exported by the UI",
+      "status": "passed"
+    },
+    {
+      "title": "requires both eligibility and minimum funding, then enforces custom cadence",
+      "status": "passed"
+    },
+    {
+      "title": "divides actual BNB funding by the configured 3x and 1x weights",
+      "status": "passed"
+    },
+    {
+      "title": "allocates the selected treasury percentages without crossing budgets",
+      "status": "passed"
+    },
+    {
+      "title": "does not transfer acquisition age, and protects initialization from unrelated callers",
+      "status": "passed"
+    },
+    {
+      "title": "rejects invalid curves, funding cadence and split before token creation",
+      "status": "passed"
+    },
+    {
+      "title": "validates the exported launch tuple and rejects mismatched infrastructure and inventory",
+      "status": "passed"
+    },
+    {
+      "title": "retains age taxation and treasury processing through real PancakeSwap graduation",
+      "status": "passed"
+    }
+  ],
+  "model_checks": "Default parity, 600 curve configurations, loyalty bounds, invalid settings, revenue conservation, export round-trip.",
+  "limits": [
+    "No independent security audit",
+    "Official OpenFour Core integration and preset registration pending",
+    "No public-chain contract or token deployment",
+    "Keeper operation not provisioned"
+  ]
+}

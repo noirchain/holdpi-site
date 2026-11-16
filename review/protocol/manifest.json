@@ -1,0 +1,4896 @@
+{
+  "version": "1.0.0-review",
+  "status": "Review source. Unregistered. No public-chain deployment.",
+  "upstream_commit": "8ca5554df22ad511126d8547c212fa161ecf19ee",
+  "compiler": "0.8.24+commit.e11b9ed9.Emscripten.clang",
+  "contracts": [
+    {
+      "name": "HoldConfig",
+      "runtime_bytes": 58,
+      "source": "src/protocol/HoldConfig.sol",
+      "abi": []
+    },
+    {
+      "name": "HoldCurveModule",
+      "runtime_bytes": 5997,
+      "source": "src/protocol/HoldCurveModule.sol",
+      "abi": [
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint8",
+              "name": "version",
+              "type": "uint8"
+            }
+          ],
+          "name": "Initialized",
+          "type": "event"
+        },
+        {
+          "inputs": [],
+          "name": "boundToken",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "config",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "virtualToken",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "virtualQuote",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "descriptor",
+          "outputs": [
+            {
+              "internalType": "bytes8",
+              "name": "",
+              "type": "bytes8"
+            },
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "token",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "trader",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "isBuy",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "remainingForSale",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "totalRaised",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "timestamp",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "proof",
+                  "type": "bytes"
+                }
+              ],
+              "internalType": "struct OpenFourTypes.CurveContext",
+              "name": "c",
+              "type": "tuple"
+            }
+          ],
+          "name": "evaluate",
+          "outputs": [
+            {
+              "components": [
+                {
+                  "internalType": "bool",
+                  "name": "executable",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "quoteAmount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "adjustedAmount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "string",
+                  "name": "reason",
+                  "type": "string"
+                }
+              ],
+              "internalType": "struct OpenFourTypes.CurveResult",
+              "name": "r",
+              "type": "tuple"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "token",
+              "type": "address"
+            },
+            {
+              "internalType": "bool",
+              "name": "isBuy",
+              "type": "bool"
+            },
+            {
+              "internalType": "uint256",
+              "name": "budget",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "remaining",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "raised",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "name": "evaluateReverse",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "q",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "fourCore",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getInitParams",
+          "outputs": [
+            {
+              "internalType": "bytes",
+              "name": "",
+              "type": "bytes"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getInitialPrice",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "token",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "remaining",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "raised",
+              "type": "uint256"
+            }
+          ],
+          "name": "getLastPrice",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "token",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "remaining",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "raised",
+              "type": "uint256"
+            }
+          ],
+          "name": "getLiquiditySnapshot",
+          "outputs": [
+            {
+              "components": [
+                {
+                  "internalType": "bool",
+                  "name": "available",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "initialQuoteLiquidity",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "initialTokenLiquidity",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "currentQuoteLiquidity",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "currentTokenLiquidity",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "remainingForSale",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "totalRaised",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "lastPrice",
+                  "type": "uint256"
+                }
+              ],
+              "internalType": "struct OpenFourTypes.CurveLiquiditySnapshot",
+              "name": "s",
+              "type": "tuple"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "token",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "core",
+              "type": "address"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "uint256",
+                  "name": "requestId",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "string",
+                  "name": "name",
+                  "type": "string"
+                },
+                {
+                  "internalType": "string",
+                  "name": "symbol",
+                  "type": "string"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "maxSupply",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "saleAmount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "raiseAmount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "address",
+                  "name": "quoteAsset",
+                  "type": "address"
+                },
+                {
+                  "internalType": "string",
+                  "name": "tokenUri",
+                  "type": "string"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "tokenParams",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "bytes32",
+                  "name": "tokenSalt",
+                  "type": "bytes32"
+                }
+              ],
+              "internalType": "struct OpenFourTypes.TokenCreateParams",
+              "name": "t",
+              "type": "tuple"
+            },
+            {
+              "internalType": "bytes",
+              "name": "params",
+              "type": "bytes"
+            },
+            {
+              "internalType": "string",
+              "name": "version_",
+              "type": "string"
+            }
+          ],
+          "name": "init",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "moduleEncodeSchema",
+          "outputs": [
+            {
+              "components": [
+                {
+                  "internalType": "string",
+                  "name": "kind",
+                  "type": "string"
+                },
+                {
+                  "internalType": "uint8",
+                  "name": "version",
+                  "type": "uint8"
+                },
+                {
+                  "components": [
+                    {
+                      "internalType": "string",
+                      "name": "name",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "abiType",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "uint8",
+                      "name": "decimals",
+                      "type": "uint8"
+                    },
+                    {
+                      "internalType": "bool",
+                      "name": "optional",
+                      "type": "bool"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "title",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "defaultValue",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "hint",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "minValue",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "maxValue",
+                      "type": "string"
+                    }
+                  ],
+                  "internalType": "struct ParamDescriptor[]",
+                  "name": "params",
+                  "type": "tuple[]"
+                }
+              ],
+              "internalType": "struct ModuleEncodeSchema",
+              "name": "",
+              "type": "tuple"
+            }
+          ],
+          "stateMutability": "pure",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "saleAmount",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "name": "HoldMigrateModule",
+      "runtime_bytes": 6383,
+      "source": "src/protocol/HoldMigrateModule.sol",
+      "abi": [
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint8",
+              "name": "version",
+              "type": "uint8"
+            }
+          ],
+          "name": "Initialized",
+          "type": "event"
+        },
+        {
+          "inputs": [],
+          "name": "boundToken",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "descriptor",
+          "outputs": [
+            {
+              "internalType": "bytes8",
+              "name": "",
+              "type": "bytes8"
+            },
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "token",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "totalRaised",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "remainingForSale",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "soldOut",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "timestamp",
+                  "type": "uint256"
+                }
+              ],
+              "internalType": "struct OpenFourTypes.MigrateContext",
+              "name": "c",
+              "type": "tuple"
+            }
+          ],
+          "name": "evaluate",
+          "outputs": [
+            {
+              "components": [
+                {
+                  "internalType": "bool",
+                  "name": "canMigrate",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "data",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "string",
+                  "name": "reason",
+                  "type": "string"
+                }
+              ],
+              "internalType": "struct OpenFourTypes.MigrateResult",
+              "name": "",
+              "type": "tuple"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "vault",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "token",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "quoteAsset",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "creator",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "totalRaised",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "remainingForSale",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "timestamp",
+                  "type": "uint256"
+                }
+              ],
+              "internalType": "struct OpenFourTypes.MigrateHookContext",
+              "name": "c",
+              "type": "tuple"
+            },
+            {
+              "internalType": "bytes",
+              "name": "",
+              "type": "bytes"
+            }
+          ],
+          "name": "executeMigration",
+          "outputs": [
+            {
+              "internalType": "uint8",
+              "name": "",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes",
+              "name": "",
+              "type": "bytes"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "executed",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "fourCore",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getInitParams",
+          "outputs": [
+            {
+              "internalType": "bytes",
+              "name": "",
+              "type": "bytes"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "token",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "core",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            },
+            {
+              "internalType": "bytes",
+              "name": "params",
+              "type": "bytes"
+            },
+            {
+              "internalType": "string",
+              "name": "version_",
+              "type": "string"
+            }
+          ],
+          "name": "init",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "moduleEncodeSchema",
+          "outputs": [
+            {
+              "components": [
+                {
+                  "internalType": "string",
+                  "name": "kind",
+                  "type": "string"
+                },
+                {
+                  "internalType": "uint8",
+                  "name": "version",
+                  "type": "uint8"
+                },
+                {
+                  "components": [
+                    {
+                      "internalType": "string",
+                      "name": "name",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "abiType",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "uint8",
+                      "name": "decimals",
+                      "type": "uint8"
+                    },
+                    {
+                      "internalType": "bool",
+                      "name": "optional",
+                      "type": "bool"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "title",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "defaultValue",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "hint",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "minValue",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "maxValue",
+                      "type": "string"
+                    }
+                  ],
+                  "internalType": "struct ParamDescriptor[]",
+                  "name": "params",
+                  "type": "tuple[]"
+                }
+              ],
+              "internalType": "struct ModuleEncodeSchema",
+              "name": "",
+              "type": "tuple"
+            }
+          ],
+          "stateMutability": "pure",
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "name": "HoldPresetValidator",
+      "runtime_bytes": 4248,
+      "source": "src/protocol/HoldPresetValidator.sol",
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "core_",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "quote_",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "router_",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "rewards_",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "treasury_",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "preset_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
+        },
+        {
+          "inputs": [],
+          "name": "core",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "presetId",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "quote",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "rewardsImpl",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "router",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "treasuryImpl",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "string",
+                  "name": "name",
+                  "type": "string"
+                },
+                {
+                  "internalType": "string",
+                  "name": "symbol",
+                  "type": "string"
+                },
+                {
+                  "internalType": "string",
+                  "name": "tokenUri",
+                  "type": "string"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "maxSupply",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "saleAmount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "raiseAmount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "address",
+                  "name": "quoteAsset",
+                  "type": "address"
+                },
+                {
+                  "internalType": "bytes32",
+                  "name": "tokenSalt",
+                  "type": "bytes32"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "tokenParams",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "vaultParams",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "curveParams",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "tradeParams",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "migrateParams",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "customDataParams",
+                  "type": "bytes"
+                }
+              ],
+              "internalType": "struct OpenFourTypes.TokenInitParams",
+              "name": "p",
+              "type": "tuple"
+            }
+          ],
+          "name": "validate",
+          "outputs": [],
+          "stateMutability": "view",
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "name": "HoldRewards",
+      "runtime_bytes": 9097,
+      "source": "src/protocol/HoldRewards.sol",
+      "abi": [
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "holder",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "recipient",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "bool",
+              "name": "nativeBNB",
+              "type": "bool"
+            }
+          ],
+          "name": "Claimed",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "quoteAmount",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "totalWeight",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "timestamp",
+              "type": "uint256"
+            }
+          ],
+          "name": "Distributed",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "received",
+              "type": "uint256"
+            }
+          ],
+          "name": "Funded",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint8",
+              "name": "version",
+              "type": "uint8"
+            }
+          ],
+          "name": "Initialized",
+          "type": "event"
+        },
+        {
+          "inputs": [],
+          "name": "PRECISION",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "ROUND",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "activeCohorts",
+          "outputs": [
+            {
+              "internalType": "uint256[]",
+              "name": "",
+              "type": "uint256[]"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "who",
+              "type": "address"
+            }
+          ],
+          "name": "balanceOf",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address payable",
+              "name": "recipient",
+              "type": "address"
+            },
+            {
+              "internalType": "bool",
+              "name": "nativeBNB",
+              "type": "bool"
+            }
+          ],
+          "name": "claim",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "who",
+              "type": "address"
+            }
+          ],
+          "name": "claimable",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "name": "cohorts",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "index",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "mergeMatureIndex",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "exists",
+              "type": "bool"
+            },
+            {
+              "internalType": "bool",
+              "name": "merged",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "who",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "credit",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "who",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "debit",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "fee",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "distribute",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "who",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "exitBps",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "fund",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "funded",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "token_",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "quote_",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "treasury_",
+              "type": "address"
+            },
+            {
+              "internalType": "uint16[]",
+              "name": "sell_",
+              "type": "uint16[]"
+            },
+            {
+              "internalType": "uint16[]",
+              "name": "weight_",
+              "type": "uint16[]"
+            },
+            {
+              "internalType": "uint32",
+              "name": "round_",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint256",
+              "name": "min_",
+              "type": "uint256"
+            }
+          ],
+          "name": "initialize",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "lastRound",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "who",
+              "type": "address"
+            }
+          ],
+          "name": "lotsOf",
+          "outputs": [
+            {
+              "components": [
+                {
+                  "internalType": "uint256",
+                  "name": "born",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "paidIndex",
+                  "type": "uint256"
+                }
+              ],
+              "internalType": "struct HoldRewards.Lot[]",
+              "name": "",
+              "type": "tuple[]"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "matureAmount",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "matureIndex",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "who",
+              "type": "address"
+            }
+          ],
+          "name": "matureOf",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "minFunding",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "paid",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "pending",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "quote",
+          "outputs": [
+            {
+              "internalType": "contract IHoldWrappedBNB",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "roundingScaled",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "name": "sellBps",
+          "outputs": [
+            {
+              "internalType": "uint16",
+              "name": "",
+              "type": "uint16"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "token",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "totalWeight",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "w",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "treasury",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "name": "weightBps",
+          "outputs": [
+            {
+              "internalType": "uint16",
+              "name": "",
+              "type": "uint16"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "stateMutability": "payable",
+          "type": "receive"
+        }
+      ]
+    },
+    {
+      "name": "HoldToken",
+      "runtime_bytes": 13814,
+      "source": "src/protocol/HoldToken.sol",
+      "abi": [
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "spender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "value",
+              "type": "uint256"
+            }
+          ],
+          "name": "Approval",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "quoteTax",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "bool",
+              "name": "isBuy",
+              "type": "bool"
+            }
+          ],
+          "name": "BondingTaxNotified",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint8",
+              "name": "version",
+              "type": "uint8"
+            }
+          ],
+          "name": "Initialized",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "pool",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "bool",
+              "name": "enabled",
+              "type": "bool"
+            }
+          ],
+          "name": "MigratedPoolUpdated",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address[]",
+              "name": "pools",
+              "type": "address[]"
+            },
+            {
+              "indexed": false,
+              "internalType": "bool",
+              "name": "enabled",
+              "type": "bool"
+            }
+          ],
+          "name": "MigratedPoolsUpdated",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "enum OpenFourTypes.Phase",
+              "name": "phase",
+              "type": "uint8"
+            }
+          ],
+          "name": "TokenPhaseUpdated",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "from",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "requestId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "TokenTransferred",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "from",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "value",
+              "type": "uint256"
+            }
+          ],
+          "name": "Transfer",
+          "type": "event"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "spender",
+              "type": "address"
+            }
+          ],
+          "name": "allowance",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "spender",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "approve",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "balanceOf",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "burnTreasury",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "buyFeeRate",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "canonicalPool",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "core",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "curveModule",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "customData",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "decimals",
+          "outputs": [
+            {
+              "internalType": "uint8",
+              "name": "",
+              "type": "uint8"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "spender",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "subtractedValue",
+              "type": "uint256"
+            }
+          ],
+          "name": "decreaseAllowance",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "descriptor",
+          "outputs": [
+            {
+              "internalType": "bytes8",
+              "name": "tagId",
+              "type": "bytes8"
+            },
+            {
+              "internalType": "string",
+              "name": "tag",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "version",
+              "type": "string"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "holder",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "exitFeeBps",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "spender",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "addedValue",
+              "type": "uint256"
+            }
+          ],
+          "name": "increaseAllowance",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "components": [
+                {
+                  "internalType": "uint256",
+                  "name": "requestId",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "string",
+                  "name": "name",
+                  "type": "string"
+                },
+                {
+                  "internalType": "string",
+                  "name": "symbol",
+                  "type": "string"
+                },
+                {
+                  "internalType": "address",
+                  "name": "vault",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "maxSupply",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "string",
+                  "name": "tokenUri",
+                  "type": "string"
+                },
+                {
+                  "internalType": "address",
+                  "name": "curveModule",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "tradeModule",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "migrateModule",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "tokenModule",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "customDataModule",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "creator",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "quoteAsset",
+                  "type": "address"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "tokenParams",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "string",
+                  "name": "tokenImplVersion",
+                  "type": "string"
+                }
+              ],
+              "internalType": "struct OpenFourToken.InitArgs",
+              "name": "c",
+              "type": "tuple"
+            }
+          ],
+          "name": "initialize",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "who",
+              "type": "address"
+            }
+          ],
+          "name": "isExcluded",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "maxSupply",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "migrateModule",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "name": "migratedPools",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "name",
+          "outputs": [
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "isBuy",
+              "type": "bool"
+            }
+          ],
+          "name": "onBondingTrade",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "onMigrate",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "policyHash",
+          "outputs": [
+            {
+              "internalType": "bytes32",
+              "name": "",
+              "type": "bytes32"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "requestId",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "rewards",
+          "outputs": [
+            {
+              "internalType": "contract HoldRewards",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "sellFeeRate",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "pool",
+              "type": "address"
+            },
+            {
+              "internalType": "bool",
+              "name": "enabled",
+              "type": "bool"
+            }
+          ],
+          "name": "setMigratedPool",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address[]",
+              "name": "pools",
+              "type": "address[]"
+            },
+            {
+              "internalType": "bool",
+              "name": "enabled",
+              "type": "bool"
+            }
+          ],
+          "name": "setMigratedPools",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "enum OpenFourTypes.Phase",
+              "name": "newPhase",
+              "type": "uint8"
+            }
+          ],
+          "name": "setPhase",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "symbol",
+          "outputs": [
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "tokenModule",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "tokenPhase",
+          "outputs": [
+            {
+              "internalType": "enum OpenFourTypes.Phase",
+              "name": "",
+              "type": "uint8"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "tokenURI",
+          "outputs": [
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "totalSupply",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "tradeModule",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "transfer",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "from",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "transferFrom",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "treasury",
+          "outputs": [
+            {
+              "internalType": "contract HoldTreasury",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "vault",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "name": "HoldTokenModule",
+      "runtime_bytes": 6790,
+      "source": "src/protocol/HoldTokenModule.sol",
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "core",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "creator",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "token",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "vault",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "curve",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "trade",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "migrate",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "customData",
+              "type": "address"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "uint256",
+                  "name": "requestId",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "string",
+                  "name": "name",
+                  "type": "string"
+                },
+                {
+                  "internalType": "string",
+                  "name": "symbol",
+                  "type": "string"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "maxSupply",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "saleAmount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "raiseAmount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "address",
+                  "name": "quoteAsset",
+                  "type": "address"
+                },
+                {
+                  "internalType": "string",
+                  "name": "tokenUri",
+                  "type": "string"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "tokenParams",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "bytes32",
+                  "name": "tokenSalt",
+                  "type": "bytes32"
+                }
+              ],
+              "internalType": "struct OpenFourTypes.TokenCreateParams",
+              "name": "p",
+              "type": "tuple"
+            },
+            {
+              "internalType": "string",
+              "name": "tokenVersion",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "moduleVersion",
+              "type": "string"
+            }
+          ],
+          "name": "createToken",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "descriptor",
+          "outputs": [
+            {
+              "internalType": "bytes8",
+              "name": "",
+              "type": "bytes8"
+            },
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "fourCore",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getInitParams",
+          "outputs": [
+            {
+              "internalType": "bytes",
+              "name": "",
+              "type": "bytes"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "moduleEncodeSchema",
+          "outputs": [
+            {
+              "components": [
+                {
+                  "internalType": "string",
+                  "name": "kind",
+                  "type": "string"
+                },
+                {
+                  "internalType": "uint8",
+                  "name": "version",
+                  "type": "uint8"
+                },
+                {
+                  "components": [
+                    {
+                      "internalType": "string",
+                      "name": "name",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "abiType",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "uint8",
+                      "name": "decimals",
+                      "type": "uint8"
+                    },
+                    {
+                      "internalType": "bool",
+                      "name": "optional",
+                      "type": "bool"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "title",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "defaultValue",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "hint",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "minValue",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "maxValue",
+                      "type": "string"
+                    }
+                  ],
+                  "internalType": "struct ParamDescriptor[]",
+                  "name": "params",
+                  "type": "tuple[]"
+                }
+              ],
+              "internalType": "struct ModuleEncodeSchema",
+              "name": "",
+              "type": "tuple"
+            }
+          ],
+          "stateMutability": "pure",
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "name": "HoldTradeModule",
+      "runtime_bytes": 3322,
+      "source": "src/protocol/HoldTradeModule.sol",
+      "abi": [
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint8",
+              "name": "version",
+              "type": "uint8"
+            }
+          ],
+          "name": "Initialized",
+          "type": "event"
+        },
+        {
+          "inputs": [],
+          "name": "boundToken",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "descriptor",
+          "outputs": [
+            {
+              "internalType": "bytes8",
+              "name": "",
+              "type": "bytes8"
+            },
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "token",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "trader",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "isBuy",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "timestamp",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "blockNumber",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "remainingForSale",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "totalRaised",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "curveQuote",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "proof",
+                  "type": "bytes"
+                }
+              ],
+              "internalType": "struct OpenFourTypes.TradeContext",
+              "name": "c",
+              "type": "tuple"
+            }
+          ],
+          "name": "evaluate",
+          "outputs": [
+            {
+              "components": [
+                {
+                  "internalType": "bool",
+                  "name": "allowed",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "minAmount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "maxAmount",
+                  "type": "uint256"
+                },
+                {
+                  "components": [
+                    {
+                      "internalType": "address",
+                      "name": "recipient",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "uint16",
+                      "name": "bps",
+                      "type": "uint16"
+                    }
+                  ],
+                  "internalType": "struct OpenFourTypes.FeeTier[]",
+                  "name": "fees",
+                  "type": "tuple[]"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "revertData",
+                  "type": "bytes"
+                }
+              ],
+              "internalType": "struct OpenFourTypes.TradeResult",
+              "name": "",
+              "type": "tuple"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "fourCore",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getInitParams",
+          "outputs": [
+            {
+              "internalType": "bytes",
+              "name": "",
+              "type": "bytes"
+            }
+          ],
+          "stateMutability": "pure",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "token",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "core",
+              "type": "address"
+            },
+            {
+              "internalType": "bytes",
+              "name": "params",
+              "type": "bytes"
+            },
+            {
+              "internalType": "string",
+              "name": "version_",
+              "type": "string"
+            }
+          ],
+          "name": "init",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "moduleEncodeSchema",
+          "outputs": [
+            {
+              "components": [
+                {
+                  "internalType": "string",
+                  "name": "kind",
+                  "type": "string"
+                },
+                {
+                  "internalType": "uint8",
+                  "name": "version",
+                  "type": "uint8"
+                },
+                {
+                  "components": [
+                    {
+                      "internalType": "string",
+                      "name": "name",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "abiType",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "uint8",
+                      "name": "decimals",
+                      "type": "uint8"
+                    },
+                    {
+                      "internalType": "bool",
+                      "name": "optional",
+                      "type": "bool"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "title",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "defaultValue",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "hint",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "minValue",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "maxValue",
+                      "type": "string"
+                    }
+                  ],
+                  "internalType": "struct ParamDescriptor[]",
+                  "name": "params",
+                  "type": "tuple[]"
+                }
+              ],
+              "internalType": "struct ModuleEncodeSchema",
+              "name": "",
+              "type": "tuple"
+            }
+          ],
+          "stateMutability": "pure",
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "name": "HoldTreasury",
+      "runtime_bytes": 12508,
+      "source": "src/protocol/HoldTreasury.sol",
+      "abi": [
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "cumulativeReceived",
+              "type": "uint256"
+            }
+          ],
+          "name": "Allocated",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "quoteSpent",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "piBurned",
+              "type": "uint256"
+            }
+          ],
+          "name": "BuybackBurn",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "piIn",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "quoteReceived",
+              "type": "uint256"
+            }
+          ],
+          "name": "Converted",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint8",
+              "name": "version",
+              "type": "uint8"
+            }
+          ],
+          "name": "Initialized",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "quoteSpent",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "lpBurned",
+              "type": "uint256"
+            }
+          ],
+          "name": "LiquidityAdded",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "piToQuoteX112",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "quoteToPiX112",
+              "type": "uint256"
+            }
+          ],
+          "name": "OracleObserved",
+          "type": "event"
+        },
+        {
+          "inputs": [],
+          "name": "DEAD",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "MAX_DEVIATION_BPS",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "MAX_ORACLE_AGE",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "OBSERVATION_PERIOD",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "accountedBalance",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "maxQuote",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            }
+          ],
+          "name": "addLiquidity",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "name": "allocated",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "bucket",
+              "type": "uint256"
+            }
+          ],
+          "name": "available",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            }
+          ],
+          "name": "buyback",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "canonicalPair",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "pair",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            }
+          ],
+          "name": "convertTax",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "fundHolders",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "token_",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "quote_",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "rewards_",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "operations_",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "router_",
+              "type": "address"
+            },
+            {
+              "internalType": "uint16[]",
+              "name": "split_",
+              "type": "uint16[]"
+            }
+          ],
+          "name": "initialize",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "lastCumulative0",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "lastCumulative1",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "liquidityMinted",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "liquidityPI",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "observationAt",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "observe",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "operations",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "oracleUpdatedAt",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "piToQuote",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "processing",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "quote",
+          "outputs": [
+            {
+              "internalType": "contract IERC20",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "quoteToPi",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "received",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "rewards",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "router",
+          "outputs": [
+            {
+              "internalType": "contract IHoldV2Router",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "name": "spent",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "name": "splitBps",
+          "outputs": [
+            {
+              "internalType": "uint16",
+              "name": "",
+              "type": "uint16"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "sync",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "token",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "tokensBurned",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "withdrawOperations",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "name": "HoldVault",
+      "runtime_bytes": 6909,
+      "source": "src/protocol/HoldVault.sol",
+      "abi": [
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint8",
+              "name": "version",
+              "type": "uint8"
+            }
+          ],
+          "name": "Initialized",
+          "type": "event"
+        },
+        {
+          "inputs": [],
+          "name": "antiSniperQuoteAccrued",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "burnToken",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bytes",
+              "name": "",
+              "type": "bytes"
+            }
+          ],
+          "name": "collectSellAsset",
+          "outputs": [],
+          "stateMutability": "pure",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "creator",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "descriptor",
+          "outputs": [
+            {
+              "internalType": "bytes8",
+              "name": "tagId",
+              "type": "bytes8"
+            },
+            {
+              "internalType": "string",
+              "name": "tag",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "version",
+              "type": "string"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "fourCore",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "getInitParams",
+          "outputs": [
+            {
+              "internalType": "bytes",
+              "name": "",
+              "type": "bytes"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "token_",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "fourCore_",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "creator_",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "migrateModule_",
+              "type": "address"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "uint256",
+                  "name": "requestId",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "string",
+                  "name": "name",
+                  "type": "string"
+                },
+                {
+                  "internalType": "string",
+                  "name": "symbol",
+                  "type": "string"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "maxSupply",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "saleAmount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "raiseAmount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "address",
+                  "name": "quoteAsset",
+                  "type": "address"
+                },
+                {
+                  "internalType": "string",
+                  "name": "tokenUri",
+                  "type": "string"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "tokenParams",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "bytes32",
+                  "name": "tokenSalt",
+                  "type": "bytes32"
+                }
+              ],
+              "internalType": "struct OpenFourTypes.TokenCreateParams",
+              "name": "tokenParams",
+              "type": "tuple"
+            },
+            {
+              "internalType": "bytes",
+              "name": "vaultParams",
+              "type": "bytes"
+            },
+            {
+              "internalType": "string",
+              "name": "moduleVersion_",
+              "type": "string"
+            }
+          ],
+          "name": "init",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "initialSaleAmount",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "isSoldOut",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "migrateModule",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "moduleEncodeSchema",
+          "outputs": [
+            {
+              "components": [
+                {
+                  "internalType": "string",
+                  "name": "kind",
+                  "type": "string"
+                },
+                {
+                  "internalType": "uint8",
+                  "name": "version",
+                  "type": "uint8"
+                },
+                {
+                  "components": [
+                    {
+                      "internalType": "string",
+                      "name": "name",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "abiType",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "uint8",
+                      "name": "decimals",
+                      "type": "uint8"
+                    },
+                    {
+                      "internalType": "bool",
+                      "name": "optional",
+                      "type": "bool"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "title",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "defaultValue",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "hint",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "minValue",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "string",
+                      "name": "maxValue",
+                      "type": "string"
+                    }
+                  ],
+                  "internalType": "struct ParamDescriptor[]",
+                  "name": "params",
+                  "type": "tuple[]"
+                }
+              ],
+              "internalType": "struct ModuleEncodeSchema",
+              "name": "",
+              "type": "tuple"
+            }
+          ],
+          "stateMutability": "pure",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "trader",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "tokenAmount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "curveQuote",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "protocolFee",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "taxFee",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "devFee",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "antiSniperQuote",
+                  "type": "uint256"
+                }
+              ],
+              "internalType": "struct OpenFourTypes.VaultTradeParams",
+              "name": "p",
+              "type": "tuple"
+            }
+          ],
+          "name": "onBuy",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "newTotalRaised",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "newRemainingForSale",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "trader",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "tokenAmount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "curveQuote",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "protocolFee",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "taxFee",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "devFee",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "antiSniperQuote",
+                  "type": "uint256"
+                }
+              ],
+              "internalType": "struct OpenFourTypes.VaultTradeParams",
+              "name": "p",
+              "type": "tuple"
+            }
+          ],
+          "name": "onSell",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "newTotalRaised",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "newRemainingForSale",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "phase",
+          "outputs": [
+            {
+              "internalType": "enum OpenFourTypes.Phase",
+              "name": "",
+              "type": "uint8"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "quoteAsset",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "remainingForSale",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "sellViaVault",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "pure",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "enum OpenFourTypes.Phase",
+              "name": "newPhase",
+              "type": "uint8"
+            }
+          ],
+          "name": "setPhase",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "soldAmount",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "token",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "tokenAddress",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "totalRaised",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "transferQuote",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "transferQuoteForMigration",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "transferTokenForMigration",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "wrappedNative",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "stateMutability": "payable",
+          "type": "receive"
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 8442,
+      "sha256": "e0b8253b5d1ade3e7e175329c225772e042cf9bcf94a8ab7f17988212c6a0af9"
+    },
+    {
+      "path": "compiler-input.json",
+      "bytes": 231073,
+      "sha256": "b3e1c93fc169bb1e642ce4c548e05610b2d791adc740a80434928bd0a1964873"
+    },
+    {
+      "path": "configuration.example.json",
+      "bytes": 2328,
+      "sha256": "a0ef27a6db56dbedbbe79b60287d179c8a7acb572803a62c50651ef2a61165fb"
+    },
+    {
+      "path": "contracts/artifacts/src/PiCurveModule.sol/PiCurveModule.json",
+      "bytes": 29537,
+      "sha256": "8a0ec89be0672755bab5b0da4228bf466c9e59bec00684ced14eb3b1bce2255f"
+    },
+    {
+      "path": "contracts/artifacts/src/PiMigrateModule.sol/IPiMigrationToken.json",
+      "bytes": 1144,
+      "sha256": "1a2a9583127a3a09dead356f23a007d16209aa70932b738ccfbd4b31ccebd7a9"
+    },
+    {
+      "path": "contracts/artifacts/src/PiMigrateModule.sol/PiMigrateModule.json",
+      "bytes": 29605,
+      "sha256": "000ff4293be106efe16a4ba25824e1ba2142dcc492004bad6e26d29c05f598aa"
+    },
+    {
+      "path": "contracts/artifacts/src/PiPresetValidator.sol/PiPresetValidator.json",
+      "bytes": 16192,
+      "sha256": "2519a5db8ccfae4bf5980ed9cafc6f48a92ee59872e6d67f51c8ccd78c01514e"
+    },
+    {
+      "path": "contracts/artifacts/src/PiRates.sol/PiRates.json",
+      "bytes": 508,
+      "sha256": "c1cdf7ddfcbbe62cd7cda771009edc5c6fc4787a892aaea1f8d5402899e8ecd0"
+    },
+    {
+      "path": "contracts/artifacts/src/PiRewards.sol/IWrappedBNB.json",
+      "bytes": 4372,
+      "sha256": "0e41003d64166121d4fde26a9b11402a09f6d65f643c6c96e9d92b15d5b6dbff"
+    },
+    {
+      "path": "contracts/artifacts/src/PiRewards.sol/PiRewards.json",
+      "bytes": 44749,
+      "sha256": "72ae270853069f1373579747341435b29a62ca2525b6baade38aad74113eafa4"
+    },
+    {
+      "path": "contracts/artifacts/src/PiToken.sol/PiToken.json",
+      "bytes": 68269,
+      "sha256": "eedd447866a288f86a65fc0b35845bd9b680eaf0a90a4f59c7300753d2bd8da9"
+    },
+    {
+      "path": "contracts/artifacts/src/PiTokenModule.sol/PiTokenModule.json",
+      "bytes": 17220,
+      "sha256": "e275ebe3716053c4616b34c00f523d8041b7eb150a62a4b174791cc2f12e4b84"
+    },
+    {
+      "path": "contracts/artifacts/src/PiTradeModule.sol/IPiTradeToken.json",
+      "bytes": 960,
+      "sha256": "712a5bdd47a09d616f6ecf2fa48e1499fc9e84ac8250b29b4592b45c8ab90b77"
+    },
+    {
+      "path": "contracts/artifacts/src/PiTradeModule.sol/PiTradeModule.json",
+      "bytes": 20529,
+      "sha256": "401890eb71bee2e01a5f56ccbae3b4b8bf1cf4b9bba8d51c41f21525117120ca"
+    },
+    {
+      "path": "contracts/artifacts/src/PiTreasury.sol/IPiAsset.json",
+      "bytes": 4868,
+      "sha256": "fd0693ea82201e16f5fb50947c5a6a4dc80bd66153242b3394cd23455d3ded8c"
+    },
+    {
+      "path": "contracts/artifacts/src/PiTreasury.sol/IPiRewardFunding.json",
+      "bytes": 486,
+      "sha256": "edc371792a5d1ef5c92ccf7b4c735ecfc04ef20c9132a8a36c07d4bd937f6f6e"
+    },
+    {
+      "path": "contracts/artifacts/src/PiTreasury.sol/IV2Factory.json",
+      "bytes": 1181,
+      "sha256": "43b7a37b781c21392b7eed66865ae542ba9550f1b11aa8c442e4e9258ba37ae7"
+    },
+    {
+      "path": "contracts/artifacts/src/PiTreasury.sol/IV2Pair.json",
+      "bytes": 5836,
+      "sha256": "0fda089daf0db859d85c3fe7e704fb4748a8cabf79f16a7a6425c03a4189f4c9"
+    },
+    {
+      "path": "contracts/artifacts/src/PiTreasury.sol/IV2Router.json",
+      "bytes": 2811,
+      "sha256": "3c86eaad8dfd506273f864bfcbf5148882ee83b918645fc7f9cf4bcf0a7b0aca"
+    },
+    {
+      "path": "contracts/artifacts/src/PiTreasury.sol/PiTreasury.json",
+      "bytes": 60876,
+      "sha256": "a85e70347acb455eb62b16edb8b913f0376784353ed18dc4b665d237c59f29ec"
+    },
+    {
+      "path": "contracts/artifacts/src/PiVault.sol/PiVault.json",
+      "bytes": 38768,
+      "sha256": "e67ddca08270a5a31b9dc8fc0bd42ad3cf7c3b59292da190887179eae3097e29"
+    },
+    {
+      "path": "contracts/artifacts/src/protocol/HoldConfig.sol/HoldConfig.json",
+      "bytes": 523,
+      "sha256": "3655eca0ce950a1b3b0a31e03bd77afa42ac2a69ba9ef39d1164becb266c1890"
+    },
+    {
+      "path": "contracts/artifacts/src/protocol/HoldCurveModule.sol/HoldCurveModule.json",
+      "bytes": 36984,
+      "sha256": "bad3352517e300f5f85117c1c2c09416171b697f28ac8dc8cc09f8d01894103a"
+    },
+    {
+      "path": "contracts/artifacts/src/protocol/HoldMigrateModule.sol/HoldMigrateModule.json",
+      "bytes": 34032,
+      "sha256": "15fee920fde7b150e208e490eb3ee3b0998fb09a80b0d28ed363970bb2ba0dd0"
+    },
+    {
+      "path": "contracts/artifacts/src/protocol/HoldMigrateModule.sol/IPiMigrationToken.json",
+      "bytes": 1155,
+      "sha256": "6cace613e2e53c9ba106daf19f021facd31cb6289cf2aa7e84b6b2336cbb2fc1"
+    },
+    {
+      "path": "contracts/artifacts/src/protocol/HoldPresetValidator.sol/HoldPresetValidator.json",
+      "bytes": 22863,
+      "sha256": "5d536c06cc205ec6fbc98940b7e9576578fa9e90b06e2be711856f8a8daa5797"
+    },
+    {
+      "path": "contracts/artifacts/src/protocol/HoldRewards.sol/HoldRewards.json",
+      "bytes": 49570,
+      "sha256": "c7b7a063d48ee38d588bb497a5cf9ea615b823c87c089d43ea2146c82560b253"
+    },
+    {
+      "path": "contracts/artifacts/src/protocol/HoldRewards.sol/IHoldWrappedBNB.json",
+      "bytes": 4387,
+      "sha256": "69e0c4f3526d2a5156029f36d27a0ecf7cfead8f3457edf484dae79a4c95e3a2"
+    },
+    {
+      "path": "contracts/artifacts/src/protocol/HoldToken.sol/HoldToken.json",
+      "bytes": 75542,
+      "sha256": "1bf163b0418e8ca4b92635a85adf9df215c0a0495a371482345fbf42d9803918"
+    },
+    {
+      "path": "contracts/artifacts/src/protocol/HoldTokenModule.sol/HoldTokenModule.json",
+      "bytes": 34179,
+      "sha256": "66a824cede2770dca1f5fcf567319e35c0f717059b870be49e11fc5b3d7bd891"
+    },
+    {
+      "path": "contracts/artifacts/src/protocol/HoldTradeModule.sol/HoldTradeModule.json",
+      "bytes": 21138,
+      "sha256": "60719dd5f9edd06c932afd23f75ed6caa9c047a988d9d963a25ad51d6ad08e30"
+    },
+    {
+      "path": "contracts/artifacts/src/protocol/HoldTradeModule.sol/IHoldTradeToken.json",
+      "bytes": 1227,
+      "sha256": "7bc9ea2193069ca935aa7c62161353dd555fb3ad5a06c89b21a65b732e112db8"
+    },
+    {
+      "path": "contracts/artifacts/src/protocol/HoldTreasury.sol/HoldTreasury.json",
+      "bytes": 63113,
+      "sha256": "f4c44578117ee3fb60173d876164f636e4bad713511847f14113ed6817acc9d1"
+    },
+    {
+      "path": "contracts/artifacts/src/protocol/HoldTreasury.sol/IHoldAsset.json",
+      "bytes": 4881,
+      "sha256": "907821aecbf51173a57c138b52facc503d9fa8ad5b81cb2c0c1e1a5a9d2995d7"
+    },
+    {
+      "path": "contracts/artifacts/src/protocol/HoldTreasury.sol/IHoldRewardFunding.json",
+      "bytes": 499,
+      "sha256": "2f7f715d0399178740877263de681e7746df3739660ddfef7c406123f25de123"
+    },
+    {
+      "path": "contracts/artifacts/src/protocol/HoldTreasury.sol/IHoldV2Factory.json",
+      "bytes": 1196,
+      "sha256": "d119112ef262893c8379dda34b0fac7856259282ab5c6f4913679e4a91bc8590"
+    },
+    {
+      "path": "contracts/artifacts/src/protocol/HoldTreasury.sol/IHoldV2Pair.json",
+      "bytes": 5851,
+      "sha256": "bacd3956972f192a765014f0450108b566b11f03b311470f96e0fa11f7ef62fb"
+    },
+    {
+      "path": "contracts/artifacts/src/protocol/HoldTreasury.sol/IHoldV2Router.json",
+      "bytes": 2826,
+      "sha256": "64c9822512bdebaf9fa80cb7a9e3b2feaa7a33104748d3c82f689dd8831abaf0"
+    },
+    {
+      "path": "contracts/artifacts/src/protocol/HoldVault.sol/HoldVault.json",
+      "bytes": 43055,
+      "sha256": "57e54377b49c441c4fb955f5cbc36415523f9c6c733ee09d4352003a2ce52c8f"
+    },
+    {
+      "path": "contracts/artifacts/src/protocol/HoldVault.sol/IHoldCoreVaultView.json",
+      "bytes": 499,
+      "sha256": "1bfee78531936612b1cddacebead9dda00c21f87879fc670e38ec9071be01735"
+    },
+    {
+      "path": "contracts/artifacts/src/test/CoreHarness.sol/ClaimsReentry.json",
+      "bytes": 3295,
+      "sha256": "1390a304d90e6406aae9ac3aed1e044497adc915621214efca2aaae8c03a9e22"
+    },
+    {
+      "path": "contracts/artifacts/src/test/CoreHarness.sol/CoreHarness.json",
+      "bytes": 54672,
+      "sha256": "8006849d33c8d370d249494ecc077a9c79bd4defa3541f14db46cfba48999b02"
+    },
+    {
+      "path": "contracts/artifacts/src/test/CoreHarness.sol/RejectBNB.json",
+      "bytes": 818,
+      "sha256": "cf2fd2f0f73958c5003e86d0faa2f98d1df3671cd4c28054353fa0dfd762ff82"
+    },
+    {
+      "path": "contracts/hardhat.config.cjs",
+      "bytes": 1206,
+      "sha256": "434e980cd7fb8935e2a030fdd0d5f1b6c364f8ff66d935b815bca26b6f0223c5"
+    },
+    {
+      "path": "contracts/package-lock.json",
+      "bytes": 330107,
+      "sha256": "eb88d3bdf7cef38a33193ee7cbd80edf77a50a34bd6cf48f38de893fff851bc8"
+    },
+    {
+      "path": "contracts/package.json",
+      "bytes": 678,
+      "sha256": "2f484c5229b7428a4c834d58c8bbe933ee77a7f9e721ec3fa54e519adf082ae8"
+    },
+    {
+      "path": "contracts/protocol/README.md",
+      "bytes": 8442,
+      "sha256": "e0b8253b5d1ade3e7e175329c225772e042cf9bcf94a8ab7f17988212c6a0af9"
+    },
+    {
+      "path": "contracts/protocol/bindings.example.json",
+      "bytes": 984,
+      "sha256": "57a3d4ba31ffaf382817c2306bf3e68ee8cf6326a8449a148ba0bf3a75eabdfe"
+    },
+    {
+      "path": "contracts/protocol/prepare-create.cjs",
+      "bytes": 6884,
+      "sha256": "b000808a1a38b058b4c2d4a67a9dca7127a1c7a3cc0b34dda5aa08c74577e82e"
+    },
+    {
+      "path": "contracts/protocol/register-local.cjs",
+      "bytes": 5377,
+      "sha256": "03c171b3da0babddc4c49120cd0de090c03686ddd90c116f003fb6f249d5dc33"
+    },
+    {
+      "path": "contracts/src/PiCurveModule.sol",
+      "bytes": 5262,
+      "sha256": "0f904a7a0858531b1db69511069582a88a1330b6132e13c92409deb8cc81e8df"
+    },
+    {
+      "path": "contracts/src/PiMigrateModule.sol",
+      "bytes": 5114,
+      "sha256": "d9b0b401706b452db07781028ad7f2c6b4bef7eed4bcfa5aaedb0a445a2049f5"
+    },
+    {
+      "path": "contracts/src/PiPresetValidator.sol",
+      "bytes": 3587,
+      "sha256": "cc91f509c0414b90ebf9e81b628fa36fbf8857193fee2ef93e658ea2f7471dec"
+    },
+    {
+      "path": "contracts/src/PiRates.sol",
+      "bytes": 1159,
+      "sha256": "4e26bf482e0ceccc901a52282b5aee1b1693bc7dc545991f81c446f04558d914"
+    },
+    {
+      "path": "contracts/src/PiRewards.sol",
+      "bytes": 10584,
+      "sha256": "3503d371fb847de8243634a00a798b860906a8de46cc86d4f80b3ce32b92914d"
+    },
+    {
+      "path": "contracts/src/PiToken.sol",
+      "bytes": 5375,
+      "sha256": "f03b2b732b08fed8cd01a1e6b69b6ee26ba305ddcd0ec238eabeede0bdbfce73"
+    },
+    {
+      "path": "contracts/src/PiTokenModule.sol",
+      "bytes": 2040,
+      "sha256": "6b8a0ecdbf02df806e492daffc9706fb1f72d4799ff5fe68c5b0e6bc179e1a91"
+    },
+    {
+      "path": "contracts/src/PiTradeModule.sol",
+      "bytes": 2555,
+      "sha256": "293cc1ecbc05b1a3ed834a2ac8a20b51c626142bbc19cfa1bd7244a16ff7b1ca"
+    },
+    {
+      "path": "contracts/src/PiTreasury.sol",
+      "bytes": 13506,
+      "sha256": "1eeb88def76ba01637fd84b92b4680117443259137223edaa3b944292dbf344f"
+    },
+    {
+      "path": "contracts/src/PiVault.sol",
+      "bytes": 264,
+      "sha256": "290328f5dd94500c83406db44088d76ae68615064c6e70005f6ca679df9d0fff"
+    },
+    {
+      "path": "contracts/src/protocol/HoldConfig.sol",
+      "bytes": 1564,
+      "sha256": "92d65dccf97f5910bbb7aa76a2449474371013e2f8b3150581aec03a81935673"
+    },
+    {
+      "path": "contracts/src/protocol/HoldCurveModule.sol",
+      "bytes": 6029,
+      "sha256": "d5f0f496f74a698c681b8ef4dade0d6314a5f605439ce815dcd89914d59b561d"
+    },
+    {
+      "path": "contracts/src/protocol/HoldMigrateModule.sol",
+      "bytes": 5528,
+      "sha256": "12b39a48032a5ff759d896f0ede3706f2cdd2837da87e66c2dea459662be427e"
+    },
+    {
+      "path": "contracts/src/protocol/HoldPresetValidator.sol",
+      "bytes": 3751,
+      "sha256": "992093e74e1234c537c4518d787018c4edfacdf53068f291df508ff2fc460d1b"
+    },
+    {
+      "path": "contracts/src/protocol/HoldRewards.sol",
+      "bytes": 11471,
+      "sha256": "fd85d1b7bf245314b3358c055fea1d58360bcbc3d8a03016656ac5cb3708ba40"
+    },
+    {
+      "path": "contracts/src/protocol/HoldToken.sol",
+      "bytes": 5514,
+      "sha256": "9fb4ad283339999554f0f904688b9b06cd2ab599cbc05c9f7d07401f1038cd97"
+    },
+    {
+      "path": "contracts/src/protocol/HoldTokenModule.sol",
+      "bytes": 3735,
+      "sha256": "e42843ee2f8f5219ccc7393f36d53c23770a888fb7859b14ab9dbe5a1310c70a"
+    },
+    {
+      "path": "contracts/src/protocol/HoldTradeModule.sol",
+      "bytes": 2962,
+      "sha256": "2c33439f30a3851d415eb8fffde24cec9a5f6488120c62d653064fbf268023f2"
+    },
+    {
+      "path": "contracts/src/protocol/HoldTreasury.sol",
+      "bytes": 13957,
+      "sha256": "d783cd622eb2a8053721cbb5d103fa75a0fd26cbd114f6281e902708cf27e01b"
+    },
+    {
+      "path": "contracts/src/protocol/HoldVault.sol",
+      "bytes": 8329,
+      "sha256": "2e80d752d4cea860cb879418f47e75b40e83763b679fbd0678aa5112a6cd1f7b"
+    },
+    {
+      "path": "contracts/src/test/CoreHarness.sol",
+      "bytes": 7746,
+      "sha256": "25058b044db066c270d61e701ac85129c97749307a6f54e7e1b6a5267ce026b6"
+    },
+    {
+      "path": "contracts/test/fixtures.cjs",
+      "bytes": 4770,
+      "sha256": "39b88d73e8bd46516eb13d7f955437dd30e0132b319e10d46aaad088a1baa6be"
+    },
+    {
+      "path": "contracts/test/pi.bnb.test.cjs",
+      "bytes": 20256,
+      "sha256": "141dd933134a85d12244078e3927b2a2239d532ec32b1590213c10f62f61c2c4"
+    },
+    {
+      "path": "contracts/test/protocol-fixtures.cjs",
+      "bytes": 4895,
+      "sha256": "5288349911aee080294d6f3608e6a2d81f285975b18d819f0c6ecd4c405ed124"
+    },
+    {
+      "path": "contracts/test/protocol.test.cjs",
+      "bytes": 9016,
+      "sha256": "08322dfac8508d2d80f8b7828da608301cc76bd7ac7b21716a46e9ed1f217ca2"
+    },
+    {
+      "path": "contracts/vendor/openfour/interfaces/IOpenFourCurveModule.sol",
+      "bytes": 1798,
+      "sha256": "11b5b5256c19c69d03911103726fe8b827ca3d8df344761af740e6eb3cb9c9a5"
+    },
+    {
+      "path": "contracts/vendor/openfour/interfaces/IOpenFourMigrateModule.sol",
+      "bytes": 1122,
+      "sha256": "d9bacb1230ca95847e6961f0679555540d05881a5cabb92e1aa941f792fbff90"
+    },
+    {
+      "path": "contracts/vendor/openfour/interfaces/IOpenFourModuleSchema.sol",
+      "bytes": 1156,
+      "sha256": "73fc6d648407852fd262fb19c6dac2e5db8f144440c7ee01eb5c26a241a654a1"
+    },
+    {
+      "path": "contracts/vendor/openfour/interfaces/IOpenFourPresetValidator.sol",
+      "bytes": 262,
+      "sha256": "ed698a103c10b3f0ea30cbce2a94a9e80db1cfcf716f68ac107d64ed6fafe1f1"
+    },
+    {
+      "path": "contracts/vendor/openfour/interfaces/IOpenFourToken.sol",
+      "bytes": 2216,
+      "sha256": "b0493f078075dae1044a656e62b9445d5e3d9a4e69cf581194aa22c8caa12bc6"
+    },
+    {
+      "path": "contracts/vendor/openfour/interfaces/IOpenFourTokenModule.sol",
+      "bytes": 1205,
+      "sha256": "15762d9ca5c951e774bd5410ab7c60ebb1654cdc7ce715cac7fd94e001d5af97"
+    },
+    {
+      "path": "contracts/vendor/openfour/interfaces/IOpenFourTradeModule.sol",
+      "bytes": 833,
+      "sha256": "ed1903d6d05e61901597627390d80b8364cd00549f0f4a2e171fefb436e74f46"
+    },
+    {
+      "path": "contracts/vendor/openfour/interfaces/IOpenFourVault.sol",
+      "bytes": 2646,
+      "sha256": "716f789b0ed070721983f9d902062aba48f221ecfec7e051e7364b3d08176770"
+    },
+    {
+      "path": "contracts/vendor/openfour/interfaces/ITagDescriptor.sol",
+      "bytes": 580,
+      "sha256": "9b5a2700e573d0d1f2d1f19daa83671eb56d28b4f32b217460399d839410bc3c"
+    },
+    {
+      "path": "contracts/vendor/openfour/interfaces/ITaxTokenBonding.sol",
+      "bytes": 1043,
+      "sha256": "73561dd80b083b618a4281143264e3cffcdc93a60b3a002fc26ad00ab86efa6d"
+    },
+    {
+      "path": "contracts/vendor/openfour/libraries/OpenFourTypes.sol",
+      "bytes": 9316,
+      "sha256": "7538b3a831893a06e5eee87af3dc4cf7d701d3c4bf3884356378cba368602dca"
+    },
+    {
+      "path": "contracts/vendor/openfour/modules/vault/TaxBondingVault.sol",
+      "bytes": 7878,
+      "sha256": "222cb6e5ee4882fc52b27be1259df576dc13c155a7956fd021fc2ebda3043508"
+    },
+    {
+      "path": "contracts/vendor/openfour/token/OpenFourToken.sol",
+      "bytes": 5789,
+      "sha256": "66f6f0f576294926ec48e1a49da9b9a9145a42b8c9aba20ae6951c5d2eb29f5d"
+    },
+    {
+      "path": "tests/protocol-model.test.cjs",
+      "bytes": 3974,
+      "sha256": "c8945397a91b1ccfd689f3f5d7997a24f9b346a5bbd01a672be74f64e7eccc9c"
+    },
+    {
+      "path": "verification.json",
+      "bytes": 1978,
+      "sha256": "29a6c62d79bfedfefc69bb6ee37b07501308eca88b7c41df43b79a7bb966b04e"
+    },
+    {
+      "path": "website/protocol-model.js",
+      "bytes": 8728,
+      "sha256": "d23258dfb4fdcae43bf7e134a6b08cd9dadc850cd09ccd6af2de1a16292833da"
+    },
+    {
+      "path": "website/protocol-zip.js",
+      "bytes": 2378,
+      "sha256": "9b1388303f640ac0cbb0cb3854c9d8c6807297f5e7c634634fbf23f505c4252b"
+    }
+  ]
+}
